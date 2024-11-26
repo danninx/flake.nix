@@ -76,9 +76,15 @@
    services.xserver.enable = true;
 
    # GNOME / GDM
-   services.xserver.displayManager.gdm.enable = true;
-   services.xserver.displayManager.gdm.wayland = true;
-   services.xserver.desktopManager.gnome.enable = true;
+   # services.xserver.displayManager.gdm.enable = true;
+   # services.xserver.displayManager.gdm.wayland = true;
+   # services.xserver.desktopManager.gnome.enable = true;
+
+   # KDE
+   services.desktopManager.plasma6.enable = true;
+   services.displayManager.sddm.enable = true;
+   services.displayManager.sddm.wayland.enable = true;
+   services.displayManager.defaultSession = "plasma";
 
    # Hyprland
    programs.hyprland = {
@@ -111,8 +117,8 @@
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
          discord
-            flameshot
-            git
+         flameshot
+         git
       ];
    };
 
