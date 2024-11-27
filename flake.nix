@@ -11,7 +11,7 @@
 
    outputs = { nixpkgs, ... } @ inputs : 
    {
-      nixosConfigurations.nixtop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.dtop = nixpkgs.lib.nixosSystem {
          specialArgs = { inherit inputs; };
          modules = [
             ./nixos/configuration.nix
