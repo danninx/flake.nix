@@ -1,15 +1,7 @@
 switch:
-	# # CLEAR OLD CONFIGS
-	# # (Required for home-manager to generate properly)
-
-	# # Firefox
-	# rm -rf ~/.mozilla/
-
-	# # VS Code
-	# rm -rf ~/.config/Code/
-	# rm -rf ~/.vscode/
-
-	# Build new generation
+	# Adding files to git...
+	@git add *
+	# Rebuilding flake...
 	sudo nixos-rebuild switch --flake .
 edit:
 	sudo -E -s nvim .

@@ -24,19 +24,10 @@
    services.displayManager.defaultSession = "plasma";
 
    # Hyprland
-   programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-   };
-
-   # Configure keymap in X11
-   services.xserver.xkb = {
-      layout = "us";
-      variant = "";
-   };
-
-   # Enable CUPS to print documents.
-   services.printing.enable = true;
+   # programs.hyprland = {
+   #    enable = true;
+   #    xwayland.enable = true;
+   # };
 
    # Enable sound with pipewire.
    hardware.pulseaudio.enable = false;
@@ -75,6 +66,7 @@
       gcc
       clang
       cl
+      jdk
       zig
    ];
 
