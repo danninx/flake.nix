@@ -39,17 +39,6 @@
       pulse.enable = true;
    };
 
-   users.users.danninx = {
-      isNormalUser = true;
-      description = "danninx";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-         discord
-         flameshot
-         git
-      ];
-   };
-
    home-manager = {
       backupFileExtension = ".bak";
       extraSpecialArgs = { inherit inputs; };
@@ -68,6 +57,10 @@
       cl
       jdk
       zig
+
+      libreoffice-qt
+      hunspell
+      hunspellDicts.uk_UA
    ];
 
    # Enable the OpenSSH daemon.

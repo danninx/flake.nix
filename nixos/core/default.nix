@@ -1,6 +1,7 @@
 {
-  imports = [
-    ./locale.nix
-    ./network.nix
-  ];
+   imports = [
+      ./locale.nix
+      ./network.nix
+      ./users.nix
+   ];
 }
