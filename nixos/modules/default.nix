@@ -1,6 +1,8 @@
 {
-  imports = [
-    ./grub.nix
-    ./nvidia.nix
-  ];
+   imports = [
+      ./grub.nix
+      ./nvidia.nix
+      ./pipewire.nix
+      ./plasma.nix
+   ];
 }

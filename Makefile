@@ -1,6 +1,6 @@
 switch:
 	# Adding files to git...
-	@git add *
+	git add *
 	# Rebuilding flake...
 	sudo nixos-rebuild switch --flake .
 edit:

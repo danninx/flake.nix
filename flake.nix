@@ -9,14 +9,27 @@
       };
    };
 
-   outputs = { nixpkgs, ... } @ inputs : 
-   {
-      nixosConfigurations.dtop = nixpkgs.lib.nixosSystem {
-         specialArgs = { inherit inputs; };
-         modules = [
-            ./nixos/configuration.nix
-            inputs.home-manager.nixosModules.default
-         ];
+   outputs = { self, home-manager, nixpkgs, ... } @ inputs:
+      let
+         inherit (self) outputs;
+      in
+         {
+         nixosConfigurations = {
+            "dtop" = nixpkgs.lib.nixosSystem {
+               specialArgs = { inherit inputs outputs; };
+               system = "x86_64-linux";
+               modules = [
+                  ./nixos/configuration.nix
+                  home-manager.nixosModules.home-manager
+                  {
+                     home-manager.backupFileExtension = ".bak";
+
+                     home-manager.useGlobalPkgs = true;
+                     home-manager.useUserPackages = true;
+                     home-manager.users.danninx = import ./home-manager/home.nix;
+                  }
+               ];
+            };
+         };
       };
-   };
 }
