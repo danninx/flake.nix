@@ -25,6 +25,15 @@
       hunspellDicts.uk_UA
 
       tmux
+
+      # temporary
+      keybase-gui
+
+      # for hyprland
+      waybar
+      swww
+      rofi-wayland
+      dunst
    ];
 
    # Enable the OpenSSH daemon.
