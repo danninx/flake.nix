@@ -1,13 +1,16 @@
 { config, lib, pkgs, nixvim, ... }:
 
 {
-	programs.nixvim.plugins.treesitter = {
-		enable = true;
+  programs.nixvim.plugins.treesitter = {
+    enable = true;
 
-		grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-			markdown
-			nix
-		];
-	};
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      html
+      markdown
+      markdown_inline
+      latex
+      nix
+    ];
+  };
 }
 

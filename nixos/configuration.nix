@@ -1,17 +1,17 @@
 { config, inputs, pkgs, ... }:
 
 {
-   imports =
-      [
-         ./hardware-configuration.nix # From hardware scan - DO NOT USE MINE UNLESS YOU HAVE THE SAME HARDWARE
-         ./core
-         ./modules
-      ];
+  imports =
+    [
+      ./hardware-configuration.nix # From hardware scan - DO NOT USE MINE UNLESS YOU HAVE THE SAME HARDWARE
+      ./core
+      ./modules
+    ];
 
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-   nixpkgs.config.allowUnfree = true;
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
 
-   environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       kitty 
       gnumake
       gcc
@@ -26,6 +26,9 @@
       wget
 
       tmux
+      zathura
+      texliveFull
+      #texlive.combined.scheme-full
 
       # temporary
       keybase-gui
@@ -35,17 +38,21 @@
       swww
       rofi-wayland
       dunst
-   ];
+    ];
+
+    fonts.packages = with pkgs; [
+      nerdfonts
+    ];
 
    # Enable the OpenSSH daemon.
    services.openssh.enable = true;
 
    # Garbage Collection
    nix.gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+     automatic = true;
+     dates = "weekly";
+     options = "--delete-older-than 30d";
    };
 
    system.stateVersion = "24.05"; # Did you read the comment?
-}
+ }
