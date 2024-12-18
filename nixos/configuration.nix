@@ -23,6 +23,7 @@
       libreoffice-qt
       hunspell
       hunspellDicts.uk_UA
+      wget
 
       tmux
 

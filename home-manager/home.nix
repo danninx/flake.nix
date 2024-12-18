@@ -14,16 +14,16 @@
    home.packages = with pkgs; [
    ];
 
-   home.file = {
-      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim";
-   };
+   # home.file = {
+   #    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim";
+   # };
 
-   programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-   };
+   # programs.neovim = {
+   #    enable = true;
+   #    defaultEditor = true;
+   #    viAlias = true;
+   #    vimAlias = true;
+   # };
 
    home.sessionVariables = {
    };

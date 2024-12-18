@@ -7,5 +7,6 @@
       # ./hyprland.nix 
       #temp
       ./keybase.nix
+      ./neovim
    ];
 }
