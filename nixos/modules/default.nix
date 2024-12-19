@@ -1,12 +1,13 @@
 {
    imports = [
       ./grub.nix
-      ./nvidia.nix
+      ./keybase.nix
       ./pipewire.nix
       ./plasma.nix
+      ./steam.nix
       # ./hyprland.nix 
       #temp
-      ./keybase.nix
       ./neovim
+      ./nvidia.nix
    ];
 }
