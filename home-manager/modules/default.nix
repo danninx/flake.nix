@@ -1,6 +1,6 @@
 {
   imports = [
-    ./fastfetch.nix
+    ./fastfetch
     ./firefox.nix
     ./vscode.nix
   ];

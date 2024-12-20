@@ -6,10 +6,9 @@
       description = "danninx";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-      discord
-      fastfetch
-      flameshot
-      git
+        discord
+        flameshot
+        git
       ];
    };
 }
