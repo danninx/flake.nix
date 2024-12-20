@@ -1,8 +1,7 @@
 {
-   imports = [
-      ./firefox.nix
-      # ./neovim.nix
-      # ./hyprland.nix
-      ./vscode.nix
-   ];
+  imports = [
+    ./fastfetch.nix
+    ./firefox.nix
+    ./vscode.nix
+  ];
 }

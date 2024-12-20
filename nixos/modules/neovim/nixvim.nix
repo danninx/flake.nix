@@ -1,24 +1,29 @@
 { config, lib, pkgs, nixvim, ... }:
 
 {
-    programs.nixvim = {
-        enable = true;
-        colorschemes.gruvbox.enable = true;
-        viAlias = true;
-        vimAlias = true;
-        globals.mapleader = " ";
+  programs.nixvim = {
+    enable = true;
+    colorschemes.gruvbox.enable = true;
+    viAlias = true;
+    vimAlias = true;
+    globals.mapleader = " ";
 
-        opts = {
-            shiftwidth = 8;
-            tabstop = 8;
-        };
+    clipboard = {
+      providers.wl-copy.enable = true;
+    };
 
-        keymaps = [
-            {
-                mode = ["n"];
-                key = "<leader>pv";
-                action = "<cmd>Ex<CR>";
-            }
+    opts = {
+      clipboard = "unnamedplus";
+      shiftwidth = 8;
+      tabstop = 8;
+    };
+
+    keymaps = [
+      {
+        mode = ["n"];
+        key = "<leader>pv";
+        action = "<cmd>Ex<CR>";
+        }
         ];
 
         extraConfigLuaPre = ''
@@ -26,5 +31,5 @@
                         aux_dir = ".build.tex" -- you can set here whatever name you desire
                         }
         '';
-    };
-}
+      };
+    }
