@@ -27,17 +27,13 @@
 
       tmux
       zathura
+      sioyek
       texliveFull
       #texlive.combined.scheme-full
 
       # temporary
       keybase-gui
 
-      # for hyprland
-      waybar
-      swww
-      rofi-wayland
-      dunst
     ];
 
     fonts.packages = with pkgs; [
@@ -46,6 +42,8 @@
 
    # Enable the OpenSSH daemon.
    services.openssh.enable = true;
+   hardware.bluetooth.enable = true;
+   hardware.bluetooth.powerOnBoot = true;
 
    # Garbage Collection
    nix.gc = {

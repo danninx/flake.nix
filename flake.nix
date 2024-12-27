@@ -10,9 +10,16 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
-  outputs = { self, home-manager, nixpkgs, nixvim, ... } @ inputs:
+  outputs = { self, home-manager, nixpkgs, nixvim, stylix, ... } @ inputs:
   let
     inherit (self) outputs;
   in
@@ -22,10 +29,11 @@
         specialArgs = { inherit inputs outputs; };
         system = "x86_64-linux";
         modules = [
+          stylix.nixosModules.stylix
           nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = ".bak";
+            home-manager.backupFileExtension = "hm-backup";
 
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

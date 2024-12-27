@@ -9,10 +9,5 @@
          jnoortheen.nix-ide
          vscodevim.vim
       ];
-
-      userSettings = {
-         "editor.fontSize" = 14;
-         "workbench.colorTheme" = "Gruvbox Dark Soft";
-      };
    };
 }

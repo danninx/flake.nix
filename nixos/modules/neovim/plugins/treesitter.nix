@@ -10,6 +10,10 @@
       markdown_inline
       latex
       nix
+
+      # Web development
+      javascript
+      typescript
     ];
   };
 }

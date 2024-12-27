@@ -20,4 +20,16 @@
       };
     };
   };
+
+  programs.nixvim.plugins.cmp-nvim-lsp.enable = true;
+  programs.nixvim.plugins.fidget.enable = true;
+
+  programs.nixvim.plugins.lsp = {
+    enable = true;
+    servers = {
+      gopls.enable = true;
+      pyright.enable = true;
+      ts_ls.enable = true;
+    };
+  };
 }

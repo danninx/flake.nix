@@ -5,6 +5,7 @@
       ./pipewire.nix
       ./plasma.nix
       ./steam.nix
+      ./stylix.nix
       # ./hyprland.nix 
       #temp
       ./neovim
