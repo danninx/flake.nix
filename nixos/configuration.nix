@@ -34,6 +34,7 @@
       # temporary
       keybase-gui
 
+      tree
     ];
 
 
