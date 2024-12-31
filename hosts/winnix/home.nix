@@ -4,7 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ../../home-manager/modules/git.nix
+    ../../home/modules/git.nix
   ];
 
   home.username = "danninx";
