@@ -3,16 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Neovim configuration
     nixvim = {
       url = "github:nix-community/nixvim";
     };
     
+    # Theming
     stylix = {
       url = "github:danth/stylix/release-24.11";
       inputs = {
@@ -27,6 +30,7 @@
     home-manager, 
     nixpkgs, 
     nixvim, 
+    nixos-wsl,
     stylix, 
     ... 
   } @ inputs:
@@ -78,26 +82,20 @@
           stylix.nixosModules.stylix
         ];
       };
+
+      # WSL - look into changing this name at home
+      "nixos" = mkSystem "winnix" {
+        system = "x86_64-linux";
+        extraModules = [
+          nixos-wsl.nixosModules.default
+          {
+            system.stateVersion = "24.05";
+            wsl.enable = true;
+            wsl.defaultUser = "nixos";
+            nix.settings.experimental-features = [ "nix-command" "flakes" ];
+          }
+        ];
+      };
     };
-
-    # nixosConfigurations = {
-    #   "dtop" = nixpkgs.lib.nixosSystem {
-    #     specialArgs = { inherit inputs outputs; };
-    #     system = "x86_64-linux";
-    #     modules = [
-    #       stylix.nixosModules.stylix
-    #       nixvim.nixosModules.nixvim
-    #       home-manager.nixosModules.home-manager
-    #       {
-    #         home-manager.backupFileExtension = "hm-backup";
-
-    #         home-manager.useGlobalPkgs = true;
-    #         home-manager.useUserPackages = true;
-    #         home-manager.users.danninx = import ./home-manager/home.nix;
-    #       }
-    #       ./nixos/configuration.nix
-    #     ];
-    #   };
-    # };
   };
 }

@@ -4,7 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./modules
+    ../../home-manager/modules/git.nix
   ];
 
   home.username = "danninx";
@@ -18,4 +18,4 @@
   };
 
   programs.home-manager.enable = true;
-}
+} 
