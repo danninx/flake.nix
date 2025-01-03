@@ -1,6 +1,8 @@
 {
    imports = [
+      ./docker.nix
       ./grub.nix
+      ./libvirt.nix
       ./keybase.nix
       ./pipewire.nix
       ./plasma.nix

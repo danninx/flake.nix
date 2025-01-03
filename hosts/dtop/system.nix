@@ -38,6 +38,12 @@ in
     keybase-gui
 
     tree
+
+    virt-manager
+    virt-viewer
+    spice 
+    spice-gtk
+    spice-protocol
   ];
 
 
