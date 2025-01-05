@@ -11,6 +11,8 @@
       latex
       nix
 
+      go
+
       # Web development
       javascript
       typescript

@@ -5,6 +5,7 @@
       ./libvirt.nix
       ./keybase.nix
       ./pipewire.nix
+      ./postgres.nix
       ./plasma.nix
       ./steam.nix
       ./stylix.nix
