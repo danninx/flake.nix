@@ -91,7 +91,7 @@
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
-            wsl.defaultUser = "nixos";
+            wsl.defaultUser = "danninx";
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
           }
         ];
