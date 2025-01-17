@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 let
   core = ../../nixos/core;
@@ -13,6 +13,10 @@ in
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+    nix.optimise.automatic = true;
+    nix.optimise.dates = [ "03:45" ];
+
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
@@ -23,6 +27,7 @@ in
       cl
       jdk
       zig
+      ghc
 
       libreoffice-qt
       hunspell
@@ -42,35 +47,37 @@ in
         ];
       })
 
-    # temporary
-    keybase-gui
+      signal-desktop
 
-    tree
+      keybase-gui
 
-    virt-manager
-    virt-viewer
-    spice 
-    spice-gtk
-    spice-protocol
-  ];
+      virt-manager
+      virt-viewer
+      spice 
+      spice-gtk
+      spice-protocol
 
+      vlc
+      spotify
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+      arduino
+    ];
 
-   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
-   hardware.bluetooth.enable = true;
-   hardware.bluetooth.powerOnBoot = true;
+    fonts.packages = [
+      pkgs.nerd-fonts._0xproto
+      pkgs.nerd-fonts.droid-sans-mono
+    ];
 
-   # Garbage Collection
-   nix.gc = {
-     automatic = true;
-     dates = "weekly";
-     options = "--delete-older-than 30d";
-   };
+    services.openssh.enable = true;
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
 
-   system.stateVersion = "24.05";
- }
+    nix.gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
+    system.stateVersion = "24.05";
+  }
 
