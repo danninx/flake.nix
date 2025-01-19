@@ -18,7 +18,6 @@ in
     };
 
     opacity = {
-      terminal = 0.8;
       popups = 0.95;
     };
 

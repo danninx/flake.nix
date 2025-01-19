@@ -4,7 +4,7 @@
   config.services.postgresql = {
     enable = true;
     enableTCPIP = true;
-    port = 5432;
+    settings.port = 5432;
     authentication = pkgs.lib.mkOverride 10 ''
     #...
     #type database DBuser origin-address auth-method

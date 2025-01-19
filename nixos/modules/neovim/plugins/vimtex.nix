@@ -2,7 +2,7 @@
 
 {
   programs.nixvim.plugins.vimtex = {
-    enable = true;
+    enable = false;
     texlivePackage = pkgs.texlive.combined.scheme-full;
     settings = {
       compiler_method = "pdflatex";

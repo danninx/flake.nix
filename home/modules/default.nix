@@ -1,5 +1,6 @@
 {
   imports = [
+    ./alacritty.nix
     ./fastfetch
     ./firefox.nix
     ./git.nix

@@ -8,6 +8,7 @@
     };
 
     targets = {
+      alacritty.enable = true;
       kde.enable = true;
       kitty.enable = true;
       firefox.enable = true;

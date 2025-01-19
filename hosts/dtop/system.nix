@@ -13,31 +13,28 @@ in
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
     nix.optimise.automatic = true;
     nix.optimise.dates = [ "03:45" ];
 
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
+      alacritty
       kitty 
+
       gnumake
       gcc
-      clang
-      cl
       jdk
       zig
-      ghc
+      wget
 
       libreoffice-qt
       hunspell
       hunspellDicts.uk_UA
-      wget
 
       tmux
       zathura
       sioyek
-      texliveFull
 
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
@@ -46,8 +43,6 @@ in
           obs-pipewire-audio-capture
         ];
       })
-
-      signal-desktop
 
       keybase-gui
 
@@ -58,14 +53,10 @@ in
       spice-protocol
 
       vlc
-      spotify
-
-      arduino
     ];
 
-    fonts.packages = [
-      pkgs.nerd-fonts._0xproto
-      pkgs.nerd-fonts.droid-sans-mono
+    fonts.packages = with pkgs; [
+      nerdfonts
     ];
 
     services.openssh.enable = true;
