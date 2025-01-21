@@ -1,7 +1,7 @@
 {
   imports = [
     ./alacritty.nix
-    ./fastfetch
+    ./fastfetch.nix
     ./firefox.nix
     ./git.nix
     ./kitty.nix
