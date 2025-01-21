@@ -1,14 +1,28 @@
 { config, lib, pkgs, ... }:
 
+with lib;
 {
-  programs.virt-manager.enable = true;
-  programs.dconf.enable = true;
+  options = {
+    dnix.vms.enable = mkEnableOption "installation of libvirtd, virt-manager and associated packages";
+  };
 
-  users.groups.libvirtd.members = [ "danninx" ];
-  users.extraGroups.libvirtd.members = [ "danninx" ];
+  config = mkIf config.dnix.vms.enable {
+    programs.virt-manager.enable = true;
+    programs.dconf.enable = true;
+    # Note: make sure to run "virsh net-autostart default" for proper networking
 
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
+    users.groups.libvirtd.members = [ "danninx" ];
+    users.extraGroups.libvirtd.members = [ "danninx" ];
 
-  # Note: make sure to run "virsh net-autostart default" for proper networking
+    virtualisation.libvirtd.enable = true;
+    virtualisation.spiceUSBRedirection.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      virt-manager
+      virt-viewer
+      spice 
+      spice-gtk
+      spice-protocol
+    ];
+  };
 }

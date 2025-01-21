@@ -1,11 +1,11 @@
 { config, lib, pkgs, nixvim, ... }:
 
 {
-  options.latex = {
-    enable = lib.mkEnableOption "TeXLive package installation and vimtex plugins for neovim";
+  options = {
+    dnix.latex.enable = lib.mkEnableOption "TeXLive package installation and vimtex plugins for neovim";
   };
 
-  config = lib.mkIf config.latex.enable {
+  config = lib.mkIf config.dnix.latex.enable {
     programs.nixvim = {
       extraConfigLuaPre = ''
                         vim.g.vimtex_compiler_latexmk = {

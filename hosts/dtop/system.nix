@@ -42,14 +42,6 @@ in
         ];
       })
 
-      keybase-gui
-
-      virt-manager
-      virt-viewer
-      spice 
-      spice-gtk
-      spice-protocol
-
       vlc
     ];
 
@@ -68,6 +60,9 @@ in
     };
 
     system.stateVersion = "24.05";
-    latex.enable = true;
+
+    dnix.latex.enable = true;
+    dnix.vms.enable = true;
+    dnix.keybase.enable = true;
   }
 
