@@ -22,14 +22,15 @@
   };
 
   programs.nixvim.plugins.cmp-nvim-lsp.enable = true;
-  programs.nixvim.plugins.fidget.enable = true;
 
   programs.nixvim.plugins.lsp = {
     enable = true;
     servers = {
-      gopls.enable = true;
       pyright.enable = true;
-      ts_ls.enable = true;
+      ccls.enable = true;
+      cmake.enable = true;
+      java_language_server.enable = true;
+      nixd.enable = true;
     };
   };
 }

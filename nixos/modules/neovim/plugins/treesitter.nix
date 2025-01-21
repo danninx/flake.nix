@@ -5,15 +5,18 @@
     enable = true;
 
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-      html
-      markdown
-      markdown_inline
-      latex
+      # latex
+      c
+      cpp
+      java
       nix
 
       go
 
+      markdown
+      markdown_inline
       # Web development
+      html
       javascript
       typescript
     ];
