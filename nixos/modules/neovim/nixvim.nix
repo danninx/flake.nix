@@ -33,11 +33,5 @@
       }
 
     ];
-
-    extraConfigLuaPre = ''
-                        vim.g.vimtex_compiler_latexmk = {
-                        aux_dir = ".build.tex" -- you can set here whatever name you desire
-                        }
-    '';
   };
 }

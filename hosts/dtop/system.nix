@@ -3,7 +3,6 @@
 let
   core = ../../nixos/core;
   modules = ../../nixos/modules;
-  extra = name: import (../../nixos/modules + "/${name}");
 in
 
   {
@@ -20,7 +19,6 @@ in
 
     environment.systemPackages = with pkgs; [
       alacritty
-      kitty 
 
       gnumake
       gcc
@@ -70,5 +68,6 @@ in
     };
 
     system.stateVersion = "24.05";
+    latex.enable = true;
   }
 

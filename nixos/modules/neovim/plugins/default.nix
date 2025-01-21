@@ -3,7 +3,6 @@
     ./cmp.nix
     ./telescope.nix
     ./treesitter.nix
-    ./vimtex.nix
   ];
 
   programs.nixvim.plugins.nvim-autopairs.enable = true;
