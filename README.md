@@ -7,8 +7,8 @@ NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 | **Name** | **Description** | **Status** |
 | - | - | - |
-| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/1--23--25-evaluates-41439a)
-| winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status](https://img.shields.io/badge/1--23--25-evaluates-41439a)
+| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/1--23--25-builds-41439a)
+| winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status](https://img.shields.io/badge/1--23--25-builds-41439a)
 
 ## Usage
 
