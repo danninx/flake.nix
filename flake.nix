@@ -63,16 +63,20 @@
         systemconfig
         hardwareconfig
 
+        nixvim.nixosModules.nixvim
+        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
+
         {
           home-manager.backupFileExtension = "hm-backup";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.danninx = import homeconfig;
           home-manager.extraSpecialArgs = { inherit inputs outputs system; };
-        }
 
-        nixvim.nixosModules.nixvim
+          nixpkgs.config.allowUnfree = true;
+          nix.settings.experimental-features = [ "nix-command" "flakes" ];
+        }
       ] ++ extraModules;
     };
 
@@ -83,9 +87,7 @@
       # Configurations for different systems go here
       "dtop" = mkSystem "dtop" {
         system = "x86_64-linux";
-        extraModules = [
-          stylix.nixosModules.stylix
-        ];
+        # extraModules = [];
       };
 
       # WSL - look into changing this name at home
@@ -93,13 +95,6 @@
         system = "x86_64-linux";
         extraModules = [
           nixos-wsl.nixosModules.default
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-            wsl.defaultUser = "danninx";
-            nix.settings.experimental-features = [ "nix-command" "flakes" ];
-          }
-          stylix.nixosModules.stylix
         ];
       };
     };
