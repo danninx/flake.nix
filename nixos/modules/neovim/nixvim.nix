@@ -24,7 +24,6 @@ in
 
         opts = {
           clipboard = "unnamedplus";
-          relativenumber = true;
           shiftwidth = 8;
           tabstop = 8;
         };
