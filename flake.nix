@@ -99,6 +99,7 @@
             wsl.defaultUser = "danninx";
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
           }
+          stylix.nixosModules.stylix
         ];
       };
     };
