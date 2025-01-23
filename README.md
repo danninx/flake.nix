@@ -1,14 +1,14 @@
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 # flake.nix
 
-NixOS system [flake](https://nixos.wiki/wiki/Flakes)
+NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 ## Hosts
 
 | **Name** | **Description** | **Status** |
 | - | - | - |
 | dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/1--23--25-evaluates-41439a)
-| winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status]()
+| winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status](https://img.shields.io/badge/1--23--25-evaluates-41439a)
 
 ## Usage
 
