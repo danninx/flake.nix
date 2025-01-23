@@ -1,37 +1,33 @@
-{ config, lib, pkgs, nixvim, ... }:
+{ config, lib, ... }:
 
-{
-  programs.nixvim = {
-    enable = true;
-    colorschemes.gruvbox.enable = true;
-    viAlias = true;
-    vimAlias = true;
-    globals.mapleader = " ";
+with lib;
+let
+  cfg = config.dnix.vim;
+in
 
-    clipboard = {
-      providers.wl-copy.enable = true;
+  {
+    options = {
+      dnix.vim.enable = mkEnableOption "danninx nixvim configurations";
     };
 
-    opts = {
-      clipboard = "unnamedplus";
-      shiftwidth = 8;
-      tabstop = 8;
+    config = mkIf cfg.enable {
+      programs.nixvim = {
+        enable = true;
+        # colorschemes.gruvbox.enable = true; // doing this with stylix now I believe
+        viAlias = true;
+        vimAlias = true;
+        globals.mapleader = " ";
+
+        clipboard = {
+          providers.wl-copy.enable = true;
+        };
+
+        opts = {
+          clipboard = "unnamedplus";
+          relativenumber = true;
+          shiftwidth = 8;
+          tabstop = 8;
+        };
+      };
     };
-
-    keymaps = [
-      {
-        mode = ["n"];
-        key = "<leader>pv";
-        action = "<cmd>Ex<CR>";
-
-      }
-
-      {
-        mode = ["n"];
-        key = "<leader>n";
-        action = "ggvG=<C-o>";
-      }
-
-    ];
-  };
-}
+  }

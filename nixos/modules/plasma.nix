@@ -1,15 +1,23 @@
-{ config, inputs, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-   # Enable the X11 windowing system.
-   services.xserver.enable = true;
+with lib;
+let
+  cfg = config.dnix.kde;
+in
 
-   # KDE
-   services.desktopManager.plasma6.enable = true;
-   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-      konsole
-   ];
-   services.displayManager.sddm.enable = true;
-   services.displayManager.sddm.wayland.enable = true;
-   services.displayManager.defaultSession = "plasma";
-}
+  {
+    options = {
+      dnix.kde.enable = mkEnableOption "Plasma6 and related configurations";
+    };
+
+    config = mkIf cfg.enable {
+      services.xserver.enable = true;
+
+      services.desktopManager.plasma6.enable = true;
+      environment.plasma6.excludePackages = with pkgs.kdePackages; [
+        konsole
+      ];
+
+      services.displayManager.defaultSession = "plasma";
+    };
+  }

@@ -1,13 +1,22 @@
 { config, lib, pkgs, ... }:
 
-{
-  users.extraGroups.docker.members = [ "danninx" ];
-
-  # Testing container
-  virtualisation = {
-    docker.enable = true;
-    oci-containers = {
-      backend = "docker";
+with lib;
+let
+  cfg = config.dnix.docker;
+in
+  {
+    options = {
+      dnix.docker.enable = mkEnableOption "docker";
     };
-  };
-}
+
+    config = {
+      users.extraGroups.docker.members = [ "danninx" ];
+
+      virtualisation = {
+        docker.enable = true;
+        oci-containers = {
+          backend = "docker";
+        };
+      };
+    };
+  }

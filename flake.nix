@@ -1,18 +1,9 @@
 {
   description = "Danninx configuration files";
 
-  # nixConfig = {
-  #   extra-substituters = [
-  #     "https://hyprland.cachix.org"
-  #   ];
-
-  #   extra-trusted-public-keys = [
-  #     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-  #   ];
-  # };
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
@@ -20,16 +11,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    # };
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/hyprland";
+      submodules = true;
+    };
 
-    # Neovim configuration
     nixvim = {
       url = "github:nix-community/nixvim";
     };
-    
-    # Theming
+
     stylix = {
       url = "github:danth/stylix/release-24.11";
       inputs = {
@@ -64,7 +55,7 @@
       hardwareconfig = ./hosts/${name}/hardware.nix;
       homeconfig = ./hosts/${name}/home.nix;
     in
-      
+
     with nixpkgs.lib; nixosSystem {
       specialArgs = { inherit inputs outputs; };
       system = "x86_64-linux";

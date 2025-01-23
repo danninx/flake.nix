@@ -1,4 +1,4 @@
-{ config, lib, inputs, pkgs, ... }:
+{ ... }:
 
 let
   core = ../../nixos/core;
@@ -9,60 +9,43 @@ in
     imports = [
       core
       modules
-    ];
-
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nix.optimise.automatic = true;
-    nix.optimise.dates = [ "03:45" ];
-
-    nixpkgs.config.allowUnfree = true;
-
-    environment.systemPackages = with pkgs; [
-      alacritty
-
-      gnumake
-      gcc
-      jdk
-      zig
-      wget
-
-      libreoffice-qt
-      hunspell
-      hunspellDicts.uk_UA
-
-      tmux
-      zathura
-      sioyek
-
-      (pkgs.wrapOBS {
-        plugins = with pkgs.obs-studio-plugins; [
-          wlrobs
-          obs-backgroundremoval
-          obs-pipewire-audio-capture
-        ];
-      })
-
-      vlc
-    ];
-
-    fonts.packages = with pkgs; [
-      nerdfonts
+      ./packages.nix
     ];
 
     services.openssh.enable = true;
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
 
-    nix.gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+    dnix = { 
+      latex = {
+        enable = true;
+        vim-support = true;
+      };
+      vim.enable = true;
+
+      keybase.enable = true;
+      
+      kde.enable = true;
+      hyprland.enable = false; # aquamarine issues? look into this later
+
+      docker.enable = true;
+      vms.enable = true;
     };
 
-    system.stateVersion = "24.05";
+    nix = {
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
+      };
 
-    dnix.latex.enable = true;
-    dnix.vms.enable = true;
-    dnix.keybase.enable = true;
+      optimise.automatic = true;
+      optimise.dates = [ "03:45" ];
+      settings.experimental-features = [ "nix-command" "flakes" ];
+    };
+
+    nixpkgs.config.allowUnfree = true;
+
+    system.stateVersion = "24.05";
   }
 

@@ -1,23 +1,15 @@
-{ config, lib, pkgs, nixpkgs, ... }:
+{ pkgs, ... }:
 
 let
-  core = ../../nixos/core;
-  modules = ../../nixos/modules;
-  # extra = name: builtins.toString (modules + "/${name}"); // probably a bit too much abstraction?
+  nixvim = ../../nixos/modules/neovim;
 in
 
 {
   imports = [
-    ../../nixos/modules/neovim
+    nixvim
+    ./packages.nix
   ];
-
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    gnumake
-  ];
 }
