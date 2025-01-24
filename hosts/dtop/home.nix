@@ -1,4 +1,4 @@
-{ config, home-manager, pkgs, ... }:
+{ ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -11,11 +11,7 @@
   home.homeDirectory = "/home/danninx";
   home.stateVersion = "24.05";
 
-  home.packages = with pkgs; [
-  ];
-
-  home.sessionVariables = {
-  };
+  home.sessionVariables = {};
 
   programs.home-manager.enable = true;
 }
