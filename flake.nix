@@ -97,6 +97,13 @@
           nixos-wsl.nixosModules.default
         ];
       };
+
+      # "iso" = mkSystem "iso" {
+      #   extraModules = [
+      #     "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+      #     "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+      #   ];
+      # };
     };
   };
 }
