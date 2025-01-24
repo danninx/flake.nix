@@ -15,7 +15,6 @@
     hunspellDicts.uk_UA
 
     tmux # when will I finally configure this... :(
-    zathura # might move this into the latex module, since I have sioyek
     sioyek
 
     (pkgs.wrapOBS {
