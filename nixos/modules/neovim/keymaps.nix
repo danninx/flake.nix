@@ -1,13 +1,14 @@
-{ ... }:
+{ config, lib, ... }:
 
+with lib;
 {
   programs.nixvim.keymaps = [
-    {
+    (mkIf (!config.programs.nixvim.plugins.oil.enable) {
       mode = ["n"];
       key = "<leader>pv";
       action = "<cmd>Ex<CR>";
       options.desc = "Enter file explorer";
-    }
+    })
 
     # does this one even work correctly?
     {

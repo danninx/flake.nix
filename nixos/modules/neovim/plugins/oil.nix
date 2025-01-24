@@ -1,5 +1,6 @@
-{ ... }:
+{ config, lib, ... }:
 
+with lib;
 {
   programs.nixvim = {
     plugins.oil = {
@@ -30,15 +31,15 @@
     };
 
     keymaps = [
-      {
+      (mkIf config.programs.nixvim.plugins.oil.enable {
         mode = [ "n" ];
-        key = "<leader>oi";
+        key = "<leader>pv";
         action = "<cmd>Oil<CR>";
         options = {
           desc = "Open oil float view";
           silent = true;
         };
-      }
+      })
     ];
   };
 }
