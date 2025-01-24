@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixvim, ... }:
+{ pkgs, ... }:
 
 {
   programs.nixvim.plugins.treesitter = {

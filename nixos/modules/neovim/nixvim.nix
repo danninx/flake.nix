@@ -13,7 +13,6 @@ in
     config = mkIf cfg.enable {
       programs.nixvim = {
         enable = true;
-        # colorschemes.gruvbox.enable = true; // doing this with stylix now I believe
         viAlias = true;
         vimAlias = true;
         globals.mapleader = " ";
@@ -24,8 +23,34 @@ in
 
         opts = {
           clipboard = "unnamedplus";
-          shiftwidth = 8;
-          tabstop = 8;
+          shiftwidth = 4;
+          tabstop = 4;
+        };
+
+        colorschemes.kanagawa = {
+          enable = true;
+          settings = {
+            compile = false;
+            undercurl = true;
+            commentStyle.italic = true;
+            functionStyle = { };
+            transparent = false;
+            dimInactive = false;
+            terminalColors = true;
+            colors = {
+              theme = {
+                wave.ui.float.bg = "none";
+                dragon.syn.parameter = "yellow";
+                all.ui.bg_gutter = "none";
+              };
+              palette = {
+                sumiInk0 = "#000000";
+                fujiWhite = "#FFFFFF";
+              };
+            };
+            overrides = "function(colors) return {} end";
+            theme = "wave";
+          };
         };
       };
     };

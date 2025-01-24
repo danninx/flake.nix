@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixvim, ... }:
+{ ... }:
 
 {
   programs.nixvim.plugins.telescope = {
@@ -14,6 +14,7 @@
         };
       };
     };
+
     keymaps = {
       "<leader>pf" = {
         action = "find_files";

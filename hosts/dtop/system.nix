@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 let
   core = ../../nixos/core;
@@ -24,7 +24,7 @@ in
       vim.enable = true;
 
       keybase.enable = true;
-      
+
       kde.enable = true;
       hyprland.enable = false; # aquamarine issues? look into this later
 
@@ -42,6 +42,10 @@ in
       optimise.automatic = true;
       optimise.dates = [ "03:45" ];
     };
+
+    fonts.packages = with pkgs; [
+      nerd-fonts.fira-code
+    ];
 
     system.stateVersion = "24.05";
   }

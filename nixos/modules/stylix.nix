@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stylix, ... }:
+{ pkgs, ... }:
 
 let
   wallpaper = ../../home/assets/wallpaper.png;
@@ -9,7 +9,7 @@ in
 
       autoEnable = false;
       image = wallpaper;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-heath.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
       cursor = {
         package = pkgs.phinger-cursors;
@@ -21,6 +21,6 @@ in
         popups = 0.95;
       };
 
-      targets.nixvim.enable = true;
+      targets.nixvim.enable = false;
     };
   }
