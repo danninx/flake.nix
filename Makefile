@@ -18,6 +18,3 @@ winnix:
 	sudo nixos-rebuild switch --flake ".#nixos"
 edit:
 	sudo -E -s nvim .
-gupdate:
-	git add *
-	git status

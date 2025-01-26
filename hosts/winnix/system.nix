@@ -14,6 +14,7 @@ in
 
     dnix = {
       vim.enable = true;
+      vim.customColors = false;
     };
 
     wsl = {

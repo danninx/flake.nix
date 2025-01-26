@@ -8,6 +8,7 @@ in
   {
     options = {
       dnix.vim.enable = mkEnableOption "danninx nixvim configurations";
+      dnix.vim.customColors = mkEnableOption "nixvim coloring (leave this false if using stylix)";
     };
 
     config = mkIf cfg.enable {
@@ -27,14 +28,14 @@ in
           tabstop = 4;
         };
 
-        colorschemes.kanagawa = {
+        colorschemes.kanagawa = mkIf cfg.customColors {
           enable = true;
           settings = {
             compile = false;
             undercurl = true;
             commentStyle.italic = true;
             functionStyle = { };
-            transparent = false;
+            transparent = true;
             dimInactive = false;
             terminalColors = true;
             colors = {

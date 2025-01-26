@@ -22,6 +22,7 @@ in
         vim-support = true;
       };
       vim.enable = true;
+      vim.customColors = false;
 
       keybase.enable = true;
 

@@ -11,14 +11,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/hyprland";
-      submodules = true;
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
+    };
+
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
 
     stylix = {
@@ -36,6 +38,7 @@
     nixpkgs, 
     nixvim, 
     nixos-wsl,
+    plasma-manager,
     stylix, 
     ... 
   } @ inputs:
@@ -68,11 +71,12 @@
         home-manager.nixosModules.home-manager
 
         {
-          home-manager.backupFileExtension = "hm-backup";
+          home-manager.backupFileExtension = "home.bak";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.danninx = import homeconfig;
           home-manager.extraSpecialArgs = { inherit inputs outputs system; };
+          home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
 
           nixpkgs.config.allowUnfree = true;
           nix.settings.experimental-features = [ "nix-command" "flakes" ];

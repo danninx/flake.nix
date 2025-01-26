@@ -3,11 +3,15 @@
 
 NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
+| ![Screenshot](./_readme/screenshot.png) 
+| - |
+| <p align="center"> [Wallpaper](https://wallhaven.cc/w/jxg7x5) was run through *[gruvbox-factory](https://github.com/paulopacitti/gruvbox-factory)* </p> |
+
 ## Hosts
 
 | **Name** | **Description** | **Status** |
 | - | - | - |
-| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/1--23--25-builds-41439a)
+| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/1--26--25-builds-41439a)
 | winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status](https://img.shields.io/badge/1--23--25-builds-41439a)
 
 ## Usage
@@ -32,6 +36,8 @@ nixpkgs.config.allowUnfree = true;
 > Be sure to edit the `system.stateVersion` in the host files to match whatever is in your current configuration for maximum compatability
 
 ### `make` aliases
+I forget where I saw these first, and for the life of me I cannot find the repository, but nixos-rebuild has some pretty long commands, I just use a Makefile in order to shorthand some stuff.
+
 The Makefile has commands for switching between different host configs:
 ```sh
 make <HOST>
@@ -48,10 +54,36 @@ make switch
 sudo nixos-rebuild switch --flake .
 ```
 
+It also has a `make edit` for editing in sudo, as I was having a weird bug where neovim didn't want to save certain files. If anyone else is having this, I managed to solve if by changing ownership of what was previous `hardware-configuration.nix` and `configuration.nix` from root to my user, and neovim gives much less of a fuss now.
+
+## Credits
+
+Although the flake started off following [a template by Misterio77](https://github.com/Misterio77/nix-starter-configs), there are many aspects of it that are in line with [martijnboers' config](https://github.com/martijnboers/nixos). 
+
+### Relevant Modules
+
+| Module | Description |
+| - | - |
+| [home-manager](https://github.com/nix-community/home-manager) | Allows for declarative configuration of home and user environments
+| [nixvim](https://github.com/nix-community/nixvim) | Declarative configuration of neovim and plugins. 
+| [nixos-wsl](https://github.com/nix-community/NixOS-WSL) | NixOS on WSL(2) - I don't use this a ton but it means I can test dev shells on my desktop
+| [plasma-manager](https://github.com/nix-community/plasma-manager) | Nix management of KDE Plasma (wraps around home-manager I believe, but much more convenient and intuitive )
+| [stylix](https://github.com/danth/stylix/) | Allows for easy theming, works with home manager to automatically apply fonts, colors, etc. across different applications; saves a TON of time
+
+### Notable References
+- [martijnboers' config](https://github.com/martijnboers/nixos) - Awesome repo; I've had it starred for a while and it's a great reference
+- [Misterio77 flake structure template](https://github.com/Misterio77/nix-starter-configs) - Amazing reference for beginners
+- [Vimjoyer on YouTube](https://www.youtube.com/@vimjoyer) - Brought me here
+- [LibrePhoenix on YouTube](https://www.youtube.com/@librephoenix) - Very good explanations of many nix concepts
+- [NixOS Wiki](https://nixos.wiki/) - Helpful for initial setups
+- [NixOS Options search](https://search.nixos.org/options) - A godsend when trying to find things
+
 ## To-Do
 
-- Switching to Hyprland / [Troubleshoot launch issue](https://github.com/hyprwm/Hyprland/issues/6967)
+- ~~Switching to Hyprland / [Troubleshoot launch issue](https://github.com/hyprwm/Hyprland/issues/6967)~~ Using krohnkite for now
 - Go back to bash(? researching this)
 - Setup docker and container building
 - Make iso image host
-- Keep refactoring
+- Finish some neovim stuff
+- Pick a nice font (FiraCode vs JetBrains?)
+- Setup wireguard for vpn

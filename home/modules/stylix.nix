@@ -9,9 +9,10 @@
 
     targets = {
       alacritty.enable = true;
+      firefox.enable = true;
+      fuzzel.enable = true;
       kde.enable = true;
       kitty.enable = true;
-      firefox.enable = true;
     };
   };
 }

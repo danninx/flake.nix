@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  wallpaper = ../../home/assets/wallpaper.png;
+  wallpaper = ../../home/assets/gruvbox-lucy.png;
 in
   {
     stylix = {
@@ -9,7 +9,7 @@ in
 
       autoEnable = false;
       image = wallpaper;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
       cursor = {
         package = pkgs.phinger-cursors;
@@ -19,8 +19,15 @@ in
 
       opacity = {
         popups = 0.95;
+        terminal = 0.95;
       };
 
-      targets.nixvim.enable = false;
+      targets.nixvim = {
+        enable = true;
+        transparentBackground = {
+          main = true;
+          signColumn = true;
+        };
+      };
     };
   }
