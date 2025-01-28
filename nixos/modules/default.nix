@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 with lib;
 let
@@ -6,6 +6,7 @@ let
 in
   {
     imports = [
+      ./display-manager.nix
       ./docker.nix
       ./grub.nix
       ./hyprland.nix
@@ -19,17 +20,6 @@ in
       ./plasma.nix
       ./steam.nix
       ./stylix.nix
-    ];
-
-    # Extra pacakges and options
-    options.dnix = {
-      dnix.libreoffice = mkEnableOption "install libreoffice suite and hunspell";
-    };
-
-    config = mkMerge [
-      (mkIf libre.enable {
-        
-      })
     ];
   }
 

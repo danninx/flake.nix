@@ -5,7 +5,7 @@
     enable = true;
 
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-      # latex
+      latex
       c
       cpp
       java

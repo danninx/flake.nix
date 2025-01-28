@@ -34,6 +34,9 @@ in
               view_method = "zathura";
             };
           };
+
+          
+          plugins.lsp.servers.texlab.enable = true;
         };
       })
     ];
