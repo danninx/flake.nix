@@ -11,11 +11,6 @@ in
       image = wallpaper;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
-      cursor = {
-        package = pkgs.phinger-cursors;
-        name = "phinger-cursors-light";
-        size = 14;
-      };
 
       opacity = {
         popups = 0.95;

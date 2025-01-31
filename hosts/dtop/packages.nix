@@ -28,5 +28,6 @@
     vlc
 
     fuzzel
+    rars
   ];
 }

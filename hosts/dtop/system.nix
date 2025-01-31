@@ -31,6 +31,8 @@ in
 
       docker.enable = true;
       vms.enable = true;
+
+      wireguard.enable = true;
     };
 
     nix = {

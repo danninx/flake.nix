@@ -2,6 +2,7 @@
   imports = [
     ./lang/cmp.nix
     ./lang/treesitter.nix
+    ./lang/lsp.nix
 
     ./nav/oil.nix
     ./nav/telescope.nix

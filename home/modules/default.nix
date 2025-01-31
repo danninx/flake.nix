@@ -1,6 +1,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./bash
     ./fastfetch.nix
     ./firefox.nix
     ./fuzzel.nix
@@ -8,6 +9,5 @@
     ./kde
     ./stylix.nix
     ./vscode.nix
-    ./zsh
   ];
 }

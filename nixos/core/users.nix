@@ -1,7 +1,6 @@
 { config, inputs, pkgs, ... }:
 
 {
-  programs.zsh.enable = true;
   users.users.danninx = {
     isNormalUser = true;
     description = "danninx";
@@ -11,6 +10,6 @@
       flameshot
       git
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 }

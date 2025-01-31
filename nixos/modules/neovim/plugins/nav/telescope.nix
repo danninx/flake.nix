@@ -13,12 +13,17 @@
           };
         };
       };
+      live-grep-args.enable = true;
     };
 
     keymaps = {
       "<leader>pf" = {
         action = "find_files";
         options.desc = "[p]roject [f]iles";
+      };
+      "<leader>pg" = {
+        action = "live_grep";
+        options.desc = "[p]roject [g]rep";
       };
     };
   };
