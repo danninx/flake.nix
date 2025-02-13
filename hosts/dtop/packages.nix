@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -29,5 +29,6 @@
 
     fuzzel
     rars
+    arduino-ide
   ];
 }

@@ -8,6 +8,7 @@
     ./git.nix
     ./kde
     ./stylix.nix
+    ./tmux.nix
     ./vscode.nix
   ];
 }

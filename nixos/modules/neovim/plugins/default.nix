@@ -1,6 +1,10 @@
 {
   imports = [
+    ./extra/nvim-autopairs.nix
+    ./extra/surround.nix
+
     ./lang/cmp.nix
+    ./lang/nix.nix
     ./lang/treesitter.nix
     ./lang/lsp.nix
 
@@ -8,11 +12,11 @@
     ./nav/telescope.nix
 
     ./visual/bufferline.nix
+    ./visual/cursorline.nix
     ./visual/lualine.nix
     ./visual/mini.nix
+    ./visual/smear.nix
   ];
 
-  programs.nixvim.plugins.nix.enable = true;
-  programs.nixvim.plugins.nvim-autopairs.enable = true;
   programs.nixvim.plugins.lz-n.enable = true;
 }

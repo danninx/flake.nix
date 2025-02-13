@@ -5,4 +5,6 @@
     ./panels.nix
     ./shortcuts.nix
   ];
+
+  programs.plasma.krunner.shortcuts.launch = "Meta+Shift+!";
 }
