@@ -5,7 +5,7 @@ NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 | ![Screenshot](./_readme/screenshot.png) 
 | - |
-| <p align="center"> [Wallpaper](https://github.com/notAxon/wallpapers/blob/main/catppuccin/mvev8aelh7zc1.png) |
+| <p align="center"> [Wallpaper](https://github.com/NixOS/nixos-artwork/blob/master/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png) |
 
 ## Hosts
 
