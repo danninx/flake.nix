@@ -14,7 +14,6 @@
     hunspell
     hunspellDicts.uk_UA
 
-    tmux # when will I finally configure this... :(
     sioyek
 
     (pkgs.wrapOBS {
