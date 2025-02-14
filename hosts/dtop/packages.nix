@@ -13,6 +13,7 @@
     libreoffice-qt
     hunspell
     hunspellDicts.uk_UA
+    oh-my-posh
 
     sioyek
 

@@ -31,6 +31,10 @@
       bind-key -n 'M-k' if-shell "$is_vim" 'send-keys M-k'  'select-pane -U'
       bind-key -T copy-mode-vi 'M-j' select-pane -D
       bind-key -T copy-mode-vi 'M-k' select-pane -U
+
+      # Fixes neovim colors in tmux-alacritty (it uses "screen" term by default).
+      set -g default-terminal "alacritty"
+      set-option -ga terminal-overrides ",alacritty:Tc"
     '';
   };
 }

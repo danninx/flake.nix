@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   users.users.danninx = {
@@ -10,6 +10,8 @@
       flameshot
       git
     ];
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
 }

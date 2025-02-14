@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 let
-  gap = 5;
+  gap = 0;
 in
   {
     home.packages = with pkgs.kdePackages; [ krohnkite ];

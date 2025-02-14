@@ -5,7 +5,7 @@ NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 | ![Screenshot](./_readme/screenshot.png) 
 | - |
-| <p align="center"> [Wallpaper](https://wallhaven.cc/w/jxg7x5) was run through *[gruvbox-factory](https://github.com/paulopacitti/gruvbox-factory)* </p> |
+| <p align="center"> [Wallpaper](https://github.com/notAxon/wallpapers/blob/main/catppuccin/mvev8aelh7zc1.png) |
 
 ## Hosts
 
