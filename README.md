@@ -46,8 +46,11 @@ make <HOST>
 sudo nixos-rebuild switch --flake ".#<HOST>"
 ```
 
-after which, a shorthand for flake rebuilding is provided:
+and shorthands for updating
 ```sh
+make
+
+#or
 make switch
 
 # same as
@@ -56,9 +59,7 @@ sudo nixos-rebuild switch --flake .
 
 It also has a `make edit` for editing in sudo, as I was having a weird bug where neovim didn't want to save certain files. If anyone else is having this, I managed to solve if by changing ownership of what was previous `hardware-configuration.nix` and `configuration.nix` from root to my user, and neovim gives much less of a fuss now.
 
-## Credits
-
-Although the flake started off following [a template by Misterio77](https://github.com/Misterio77/nix-starter-configs), there are many aspects of it that are in line with [martijnboers' config](https://github.com/martijnboers/nixos). 
+## Docs
 
 ### Relevant Modules
 
@@ -74,16 +75,4 @@ Although the flake started off following [a template by Misterio77](https://gith
 - [martijnboers' config](https://github.com/martijnboers/nixos) - Awesome repo; I've had it starred for a while and it's a great reference
 - [Misterio77 flake structure template](https://github.com/Misterio77/nix-starter-configs) - Amazing reference for beginners
 - [Vimjoyer on YouTube](https://www.youtube.com/@vimjoyer) - Brought me here
-- [LibrePhoenix on YouTube](https://www.youtube.com/@librephoenix) - Very good explanations of many nix concepts
-- [NixOS Wiki](https://nixos.wiki/) - Helpful for initial setups
-- [NixOS Options search](https://search.nixos.org/options) - A godsend when trying to find things
 
-## To-Do
-
-- ~~Switching to Hyprland / [Troubleshoot launch issue](https://github.com/hyprwm/Hyprland/issues/6967)~~ Using krohnkite for now
-- Go back to bash(? researching this)
-- Setup docker and container building
-- Make iso image host
-- Finish some neovim stuff
-- Pick a nice font (FiraCode vs JetBrains?)
-- Setup wireguard for vpn
