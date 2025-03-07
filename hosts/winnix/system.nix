@@ -9,13 +9,16 @@ in
     imports = [
       nixvim
       stylix
+      ../../nixos/modules/latex.nix
+      ../../nixos/modules/tmux.nix
       ./packages.nix
     ];
 
-    dnix = {
+    dnix = { 
+      latex.enable = false;
       vim.enable = true;
-      vim.customColors = false;
     };
+
 
     wsl = {
       enable = true;

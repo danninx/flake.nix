@@ -5,6 +5,7 @@
 
   imports = [
     ../../home/modules/git.nix
+    ../../home/modules/tmux.nix
   ];
 
   home.username = "danninx";
