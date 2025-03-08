@@ -1,7 +1,6 @@
 {
   imports = [
     ./alacritty.nix
-    ./bash
     ./fastfetch.nix
     ./firefox.nix
     ./fuzzel.nix

@@ -26,10 +26,12 @@
       ll = "ls -l --color=tty";
       ls = "ls --color=tty";
       mkcd = "func() { mkdir -p \"$1\" && cd \"$1\"; }; func";
+      tach = "func() { tmux attach -t \"$1\"; }; func";
+      tnew = "func() { cd \"$1\" && tmux new -A -s compiler && home; }; func";
     };
 
     oh-my-zsh = {
-      enable = false;
+      enable = true;
       plugins = [
         "git"
         "git-extras"
