@@ -9,6 +9,8 @@
     escapeTime = 0;
 
     plugins = with pkgs.tmuxPlugins; [
+      continuum
+      resurrect
       sensible
       vim-tmux-navigator
     ];
@@ -35,6 +37,13 @@
       # Fixes neovim colors in tmux-alacritty (it uses "screen" term by default).
       set -g default-terminal "alacritty"
       set-option -ga terminal-overrides ",alacritty:Tc"
+
+      # Resurrection settings; should revive neovim sessions
+      resurrect_dir="$HOME/.tmux/resurrect"
+      set -g @resurrect-dir $resurrect_dir
+      set -g @resurrect-hook-post-save-all "sed -i 's/--cmd lua.*--cmd set packpath/--cmd \"lua/g; s/--cmd set rtp.*\$/\"/' $resurrect_dir/last"
+      set -g @resurrect-capture-pane-contents 'on'
+      set -g @resurrect-processes '"~nvim"'
     '';
   };
 }
