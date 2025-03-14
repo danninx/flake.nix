@@ -3,10 +3,12 @@
     ./extra/nvim-autopairs.nix
     ./extra/surround.nix
 
+
     ./lang/cmp.nix
+    ./lang/java.nix
+    ./lang/lsp.nix
     ./lang/nix.nix
     ./lang/treesitter.nix
-    ./lang/lsp.nix
 
     ./nav/oil.nix
     ./nav/telescope.nix

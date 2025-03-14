@@ -6,6 +6,7 @@
     ./docker.nix
     ./grub.nix
     ./hyprland.nix
+    ./java.nix
     ./keybase.nix
     ./latex.nix
     ./libvirt.nix

@@ -12,10 +12,13 @@
       fuzzel
       hunspell
       hunspellDicts.uk_UA
+      jetbrains.idea-ultimate
       libreoffice-qt
       rars
       sioyek
       vlc
+      unzip
+
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
