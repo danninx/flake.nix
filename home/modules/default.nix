@@ -10,6 +10,7 @@
     ./stylix.nix
     ./tmux.nix
     ./vscode.nix
+    ./zathura.nix
     ./zsh
   ];
 }
