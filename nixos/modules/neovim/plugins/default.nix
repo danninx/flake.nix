@@ -3,7 +3,6 @@
     ./extra/nvim-autopairs.nix
     ./extra/surround.nix
 
-
     ./lang/cmp.nix
     ./lang/java.nix
     ./lang/lsp.nix

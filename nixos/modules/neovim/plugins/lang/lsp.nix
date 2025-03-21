@@ -7,7 +7,7 @@
       autoLoad = true;
       servers = {
         pyright.enable = true;
-        # jdtls.enable = true;
+        jdtls.enable = true;
         
         ccls = {
           enable = true;
