@@ -25,8 +25,5 @@ in
     ];
 
     services.displayManager.defaultSession = "plasma";
-
-    # FIXME Autolock kwallet
-    security.pam.services.danninx.kwallet.enable = true;
   };
 }
