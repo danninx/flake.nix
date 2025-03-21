@@ -18,12 +18,12 @@ in
 
   dnix = { 
     docker.enable = true;
-    hyprland.enable = false; # aquamarine issues? look into this later
+    hyprland.enable = true; # suddenly started working? checking source tree to see what changed
     keybase.enable = true;
     latex.enable = true;
     plasma6.enable = true;
     vim.enable = true;
-    vms.enable = false;
+    vms.enable = true;
     wireguard.enable = true;
   };
 

@@ -14,10 +14,11 @@
       hunspellDicts.uk_UA
       jetbrains.idea-ultimate
       libreoffice-qt
+      qbittorrent
       rars
       sioyek
-      vlc
       unzip
+      vlc
 
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
