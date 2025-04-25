@@ -22,6 +22,12 @@
 
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
+
+      WebsiteFilter = {
+        Block = [
+          #"*://*.youtube.com/*"
+        ];
+      };
     };
 
     profiles = {
