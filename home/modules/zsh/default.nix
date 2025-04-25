@@ -27,6 +27,7 @@
       ls = "ls --color=tty";
       mkcd = "func() { mkdir -p \"$1\" && cd \"$1\"; }; func";
       tach = "func() { tmux attach -t \"$1\"; }; func";
+      tls = "tmux ls";
       tnew = "func() { cd \"$1\" && tmux new -A -s \"$2\" && home; }; func";
     };
 
