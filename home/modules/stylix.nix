@@ -50,6 +50,7 @@ in
           plugin = "mini.base16";
           transparentBackground = {
             main = true;
+            numberLine = true;
             signColumn = true;
           };
         };

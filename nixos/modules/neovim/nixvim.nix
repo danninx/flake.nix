@@ -26,6 +26,7 @@ in
             clipboard = "unnamedplus";
             shiftwidth = 4;
             tabstop = 4;
+            relativenumber = true;
           };
         };
       })

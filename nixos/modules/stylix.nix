@@ -20,6 +20,7 @@ in
         enable = true;
         transparentBackground = {
           main = true;
+          numberLine = true;
           signColumn = true;
         };
       };
