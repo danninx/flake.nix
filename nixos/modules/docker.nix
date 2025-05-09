@@ -9,7 +9,7 @@ in
       dnix.docker.enable = mkEnableOption "docker";
     };
 
-    config = {
+    config = mkIf cfg.enable {
       users.extraGroups.docker.members = [ "danninx" ];
 
       virtualisation = {
@@ -18,5 +18,10 @@ in
           backend = "docker";
         };
       };
+
+      users.users.danninx.packages = with pkgs; [
+        kubectl
+        minikube
+      ];
     };
   }
