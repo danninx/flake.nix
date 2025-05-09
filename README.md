@@ -11,7 +11,7 @@ NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 | **Name** | **Description** | **Status** |
 | - | - | - |
-| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/3--14--25-builds-41439a)
+| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/5--8--25-builds-41439a)
 | winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status](https://img.shields.io/badge/3--7--25-builds-41439a)
 
 ## Usage
@@ -76,3 +76,5 @@ It also has a `make edit` for editing in sudo, as I was having a weird bug where
 - [Misterio77 flake structure template](https://github.com/Misterio77/nix-starter-configs) - Amazing reference for beginners
 - [Vimjoyer on YouTube](https://www.youtube.com/@vimjoyer) - Brought me here
 
+### Notes
+- Took the repo off public for a bit to mess with the git history
