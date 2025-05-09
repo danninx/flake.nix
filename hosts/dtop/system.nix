@@ -18,13 +18,14 @@ in
 
   dnix = { 
     docker.enable = true;
-    hyprland.enable = true; # suddenly started working? checking source tree to see what changed
+    hyprland.enable = false; # suddenly started working? checking source tree to see what changed
     keybase.enable = true;
     latex.enable = true;
     plasma6.enable = true;
     vim.enable = true;
     vms.enable = true;
-    wireguard.enable = true;
+    wireguard.enable = false;
+    yubikey-software.enable = true;
   };
 
   nix = {
@@ -32,6 +33,7 @@ in
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 14d";
+      randomizedDelaySec = "45min";
     };
 
     optimise.automatic = true;
