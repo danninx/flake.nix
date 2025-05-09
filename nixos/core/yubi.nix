@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib; let
-  cfg = config.dnix.yubikeys;
+  cfg = config.dnix.yubikey-software;
 in
   {
     options = {
