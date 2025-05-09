@@ -10,10 +10,12 @@
       discord
       flameshot
       fuzzel
+      ghc
       hunspell
       hunspellDicts.uk_UA
       jetbrains.idea-ultimate
       libreoffice-qt
+      python312
       qbittorrent
       rars
       sioyek
@@ -31,5 +33,6 @@
     shell = pkgs.zsh;
   };
 
+  programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 }
