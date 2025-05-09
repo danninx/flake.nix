@@ -62,7 +62,7 @@
         "Activate Application Launcher" = "none"; 
       };
 
-      "services/Alacritty.desktop"."_launch" = "Meta+T";
+      "services/net.local.wezterm.desktop"."_launch" = "Meta+T";
       "services/net.local.fuzzel.desktop"."_launch" = "Meta";
     };
   };

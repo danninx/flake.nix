@@ -23,6 +23,7 @@
 
       set     -g  base-index      1
       setw    -g  pane-base-index 1
+      set-option -g mouse on
 
       bind    -n  M-h previous-window
       bind    -n  M-l next-window

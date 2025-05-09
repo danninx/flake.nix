@@ -42,7 +42,10 @@ in
 
       targets = {
         alacritty.enable = true;
-        firefox.enable = true;
+        firefox = {
+          enable = true;
+          profileNames = [ "danninx" ];
+        };
         fuzzel.enable = true;
         kde.enable = true;
         nixvim = {

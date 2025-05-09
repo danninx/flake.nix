@@ -34,9 +34,6 @@
       danninx = {
         isDefault = true;
         name = "danninx";
-        bookmarks = [
-          #FIXME add some bookmarks
-        ];
       };
     };
   };

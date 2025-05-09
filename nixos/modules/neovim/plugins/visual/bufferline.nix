@@ -8,6 +8,7 @@
       settings = {
         options = {
           separator_style = "thin";
+          themable = true;
         };
 
         highlights = {
