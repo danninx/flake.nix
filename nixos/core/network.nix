@@ -6,7 +6,7 @@ let
 in
   {
     options = {
-      dnix.wireguard.enable = mkEnableOption "wireguard firewall rules";
+      dnix.wireguard.enable = mkEnableOption "wireguard and firewall rules";
     };
 
     config = mkMerge [
@@ -14,6 +14,11 @@ in
         networking = {
           hostName = "dtop";
           networkmanager.enable = true;
+          firewall = {
+            allowPing = false;
+            enable = true;
+            logReversePathDrops = true;
+          };
         };
       }
 
@@ -23,17 +28,15 @@ in
         ];
 
         networking.firewall = {
-          logReversePathDrops = true;
-
-          extraCommands = ''
-            ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
-            ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
-          '';
-          extraStopCommands = ''
-            ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
-            ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
-          '';
-        };
+            extraCommands = ''
+              ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
+              ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
+            '';
+            extraStopCommands = ''
+              ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
+              ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
+            '';
+        }
       })
     ];
   }
