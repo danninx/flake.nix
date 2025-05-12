@@ -2,9 +2,9 @@
 
 {
   imports = [
+    ./boot.nix
     ./display-manager.nix
     ./docker.nix
-    ./grub.nix
     ./hyprland.nix
     ./java.nix
     ./keybase.nix

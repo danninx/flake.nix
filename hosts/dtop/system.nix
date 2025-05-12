@@ -22,6 +22,7 @@ in
     keybase.enable = true;
     latex.enable = true;
     plasma6.enable = true;
+    silentBoot.enable = true;
     vim.enable = true;
     vms.enable = true;
     wireguard.enable = false;
