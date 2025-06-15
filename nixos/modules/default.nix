@@ -3,8 +3,8 @@
 {
   imports = [
     ./boot.nix
+    ./containers.nix
     ./display-manager.nix
-    ./docker.nix
     ./hyprland.nix
     ./java.nix
     ./keybase.nix

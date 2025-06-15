@@ -56,13 +56,13 @@ config.color_scheme = 'Catppuccin Mocha'
 config.window_background_opacity = 0.98
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
-config.font_size = 11
+config.font_size = 12
 config.warn_about_missing_glyphs = false
 
 config.font = wezterm.font_with_fallback {
   {
     family = 'JetBrains Mono',
-    weight = 'DemiBold',
+    -- weight = 'Bold',
 	
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
   },
@@ -202,10 +202,5 @@ bind({
 	{ key = 'w', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true}, },
 
 })
-
-
-
-
-
 
 return config

@@ -20,6 +20,12 @@ in
             logReversePathDrops = true;
           };
         };
+
+        environment.systemPackages = with pkgs; [
+          nmap
+        ];
+
+        services.tailscale.enable = true;
       }
 
       (mkIf cfg.enable {

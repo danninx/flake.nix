@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  wallpaper = ../../home/assets/knight-1.jpg;
+  wallpaper = ../../backgrounds/knight-1.jpg;
 in
   {
     stylix = {

@@ -1,14 +1,14 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
-  fontSize = 11;
+  fontSize = 12;
 in
   {
     stylix = {
       cursor = {
-        package = pkgs.phinger-cursors;
-        name = "phinger-cursors";
-        size = 24;
+        package = pkgs.rose-pine-cursor;
+        name = "rose-pine-cursor";
+        size = 20;
       };
 
       fonts = {
@@ -47,6 +47,7 @@ in
           profileNames = [ "danninx" ];
         };
         fuzzel.enable = true;
+        lazygit.enable = true;
         kde.enable = true;
         nixvim = {
           enable = true;

@@ -10,6 +10,7 @@
           { name = "nvim_lsp"; }
           { name = "path"; }
           { name = "buffer"; }
+          { name = "nvim_lsp_signature_help"; }
         ];
         mapping = {
           "<Tab>" = # Lua
@@ -22,8 +23,5 @@
       };
     };
 
-    cmp-buffer.enable = true;
-    cmp-nvim-lsp.enable = true;
-    cmp-nvim-lsp-signature-help.enable = true;
   };
 }

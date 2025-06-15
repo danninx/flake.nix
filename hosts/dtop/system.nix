@@ -17,11 +17,12 @@ in
   hardware.bluetooth.powerOnBoot = true;
 
   dnix = { 
-    docker.enable = true;
-    hyprland.enable = false; # suddenly started working? checking source tree to see what changed
+    docker.enable = false;
+    hyprland.enable = true;
     keybase.enable = true;
     latex.enable = true;
     plasma6.enable = true;
+    podman.enable = true;
     silentBoot.enable = true;
     vim.enable = true;
     vms.enable = true;
@@ -43,6 +44,7 @@ in
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   system.stateVersion = "24.05";

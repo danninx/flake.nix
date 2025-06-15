@@ -19,6 +19,7 @@ in
   #home.file.".wezterm.lua".source = symlink /home/danninx/dnix/dotfiles/.wezterm.lua;
   home.file = symlinks [
     /home/danninx/dnix/dotfiles/.wezterm.lua
+    /home/danninx/dnix/dotfiles/.config/hypr/hyprland.conf
   ];
   # home.file = builtins.listToAttrs (map (name: {name = "${name}"; value = { source = /home/danninx/dotfiles/${name};};}) [ ".wezterm.lua" ]);
   #[

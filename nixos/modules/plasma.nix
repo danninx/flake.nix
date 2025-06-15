@@ -24,6 +24,8 @@ in
       khelpcenter
     ];
 
-    services.displayManager.defaultSession = "plasma";
+    environment.systemPackages = with pkgs.kdePackages; [
+      sddm-kcm
+    ];
   };
 }

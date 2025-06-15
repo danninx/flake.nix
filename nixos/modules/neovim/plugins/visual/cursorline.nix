@@ -7,8 +7,8 @@
     settings = { 
       cursorline = {
         enable = true;
-        timeout = 1000;
-        number = false;
+        timeout = 250;
+        number = true;
       };
 
       cursorword = {

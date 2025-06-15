@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
+    # catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,6 +82,9 @@
 
           nixpkgs.config.allowUnfree = true;
           nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+          programs.nix-ld.enable = true;
+          programs.zsh.enable = true;
         }
       ] ++ extraModules;
     };
