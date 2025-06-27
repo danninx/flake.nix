@@ -191,6 +191,13 @@
     # Icon for notifications with critical urgency
     default_icon = dialog-warning
 
+[play_sound]
+	summary="*"
+	script="~/.config/dunst/sounds/greeting.sh"
+
+[play_sound]
+	category="warning"
+	script="~/.config/dunst/sounds/exclaim.sh"
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #

@@ -5,7 +5,6 @@
     alacritty
     git
     gnumake
-    oh-my-posh
     wezterm
     wget
   ];

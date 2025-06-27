@@ -1,6 +1,9 @@
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 # flake.nix
 
+> [!CAUTION]
+> As of June 19, 2025, I've decided to start my move away from nix. More details about that [here](). There is a `dotfiles` directory in this repository that I will be slowly migrating into, and then I plan to move back to Arch Linux, or another quirky distro towards the end of this Summer, after which this repository will be archived.
+
 NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 | ![Screenshot](./_readme/screenshot.png) 

@@ -17,12 +17,12 @@ in
   hardware.bluetooth.powerOnBoot = true;
 
   dnix = { 
-    docker.enable = false;
+    docker.enable = true;
     hyprland.enable = true;
     keybase.enable = true;
     latex.enable = true;
     plasma6.enable = true;
-    podman.enable = true;
+    podman.enable = false;
     silentBoot.enable = true;
     vim.enable = true;
     vms.enable = true;
@@ -47,6 +47,7 @@ in
     nerd-fonts.jetbrains-mono
   ];
 
+  programs.starship.enable = true;
   system.stateVersion = "24.05";
 }
 
