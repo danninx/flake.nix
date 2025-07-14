@@ -14,6 +14,7 @@ in
     config = mkIf cfg.enable {
       services.keybase.enable = true;
       services.kbfs.enable = true;
+      services.kbfs.mountPoint = "%h/.kbfs";
 
       environment.systemPackages = with pkgs; [
         keybase-gui

@@ -2,21 +2,21 @@
 
 let
   default = s: "${config.home.homeDirectory}/${s}";
-  media = s: (default "Media/${s}");
+  media = s: (default "media/${s}");
 in
 {
   xdg = {
     userDirs = {
       enable = true;
       createDirectories = true;
-      desktop = default "Desktop";
-      documents = default "Documents";
-      download = default "Downloads";
-      music = media "Music";
-      pictures = media "Pictures";
-      publicShare = default "Public";
-      templates = default "Templates";
-      videos = media "Videos";
+      desktop = default "desktop";
+      documents = default "documents";
+      download = default "downloads";
+      music = media "music";
+      pictures = media "pictures";
+      publicShare = default "public";
+      templates = default "templates";
+      videos = media "videos";
     };
   };
 }

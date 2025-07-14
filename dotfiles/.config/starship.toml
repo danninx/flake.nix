@@ -4,16 +4,16 @@
 format = """
 $directory\
 $git_branch\
-$bun$golang$java$python\
-$fill\
-$direnv\
-$nix_shell $time $battery\
-$line_break\
+($bun )($golang )($java )($python )\
 $character\
 """
 
+right_format = """
+$direnv $nix_shell $time $battery\
+"""
+
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 [battery]
 format = '[\($percentage\)]($style)'
@@ -60,6 +60,10 @@ style = 'bold bright-red'
 format = '[(\($symbol $state-$name\))]($style)'
 style = 'bold bright-blue'
 symbol = '❄️'
+
+[os]
+disabled = false
+style = "bg:red fg:crust"
 
 [python]
 format = '[\(python [${pyenv_prefix}](bold bright-blue)(${version})( - $virtualenv)\)]($style)'

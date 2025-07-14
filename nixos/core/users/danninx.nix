@@ -12,21 +12,18 @@ in
     description = "danninx";
     extraGroups = [ "dialout" "networkmanager" "wheel" "wireshark" ];
     packages = with pkgs; [
-      arduino-ide
+      air
+      bun
       discord
       go
-      inkscape
-      jetbrains.idea-ultimate
       libreoffice-qt
       hunspell
       lazygit
       nix-prefetch-git
       obsidian
-      proton-pass
       qbittorrent
+      remmina
       sioyek
-      vmware-workstation
-      wireshark
     ] ++ defaultPkgs ++ userPkgs;
 
     shell = pkgs.zsh;
