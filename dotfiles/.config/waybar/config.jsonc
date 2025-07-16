@@ -1,0 +1,49 @@
+{
+	"layer": "top",
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": ["clock"],
+	"modules-right": ["user", "gamemode", "cpu", "network"],
+
+	"clock": {
+		"format": "{:%H:%M}",
+		"format-alt": "{  %d·%m·%y}",
+		"tooltip-format": "<span>{calendar}</span>",
+		"calendar": {
+			"mode": "month",
+			"format": {
+				"months": "<span color='#ff6699'><b>{}</b></span>",
+				"days": "<span color='#cdd6f4'><b>{}</b></span>",
+				"weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+				"today": "<span color='#ffcc66'><b>{}</b></span>"
+			}
+		}
+	},
+
+	"gamemode": {
+		"format": "{glyph}",
+		"format-alt": "{glyph} {count}",
+		"glyph": "",
+		"hide-not-running": true,
+		"use-icon": true,
+		"icon-name": "input-gaming-symbolic",
+		"icon-spacing": 4,
+		"icon-size": 20,
+		"tooltip": true,
+		"tooltip-format": "Games running: {count}"
+	},
+
+	"hyprland/workspaces": {
+		"format": "{name} : {icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"active": "",
+			"default": ""
+		}
+	}
+}

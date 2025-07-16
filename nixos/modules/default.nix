@@ -11,11 +11,10 @@
     ./latex.nix
     ./libvirt.nix
     ./neovim
-    ./nvidia.nix
+    ./obs.nix
     ./pipewire.nix
     ./postgres.nix
     ./plasma.nix
-    ./steam.nix
     ./stylix.nix
     ./tmux.nix
   ];

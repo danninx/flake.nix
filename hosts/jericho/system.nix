@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   core = ../../nixos/core;
+  host-modules = ./modules;
   modules = ../../nixos/modules;
   nvidia = ./nvidia.nix;
 in
@@ -9,23 +10,27 @@ in
 {
   imports = [
     core
+    host-modules
     modules
     nvidia
     ./packages.nix
   ];
-  networking.hostName = "dtop";
+
+  networking.hostName = "jericho";
+
+  services.apcupsd.enable = true;
   services.openssh.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   dnix = { 
-    docker.enable = true;
+    docker.enable = false;
     hyprland.enable = true;
     keybase.enable = true;
     latex.enable = true;
     plasma6.enable = true;
-    podman.enable = false;
-    silentBoot.enable = true;
+    podman.enable = true;
+    silentBoot.enable = false;
     vim.enable = true;
     vms.enable = true;
     wireguard.enable = false;
@@ -49,7 +54,8 @@ in
     nerd-fonts.jetbrains-mono
   ];
 
-  programs.starship.enable = true;
-  system.stateVersion = "24.05";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  system.stateVersion = "25.05";
 }
 

@@ -25,6 +25,7 @@ in
 
           systemPackages = with pkgs; [
             dunst
+            jq
             libnotify
             rose-pine-cursor
             swww 

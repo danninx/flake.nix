@@ -81,6 +81,9 @@
           home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
 
           nixpkgs.config.allowUnfree = true;
+          nixpkgs.overlays = [
+            (import ./pkgs)
+          ];
           nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
           programs.nix-ld.enable = true;
@@ -97,6 +100,10 @@
       "dtop" = mkSystem "dtop" {
         system = "x86_64-linux";
         # extraModules = [];
+      };
+
+      "jericho" = mkSystem "jericho" {
+        system = "x86_64-linux";
       };
 
       # WSL - look into changing this name at home

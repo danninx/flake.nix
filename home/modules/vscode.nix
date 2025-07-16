@@ -1,6 +1,10 @@
 { lib, pkgs, ... }:
 
 let 
+  vscode-wrapped = (pkgs.vscode.fhs.overrideAttrs (old: rec {
+    commandLineArgs = "--user-angle=vulkan";
+  }));
+
   defaultPlugins = with pkgs.vscode-extensions; [
     vscodevim.vim
     catppuccin.catppuccin-vsc
@@ -14,20 +18,20 @@ let
     "editor.fontLigatures" = true;
     "editor.minimap.enabled" = false;
     "workbench.sideBar.location"= "right";
-  };
+    };
 
 
-  makeProfile = plugins: settings:
-  {
-    extensions = defaultPlugins ++ plugins;
-    userSettings = settings;
-  };
+    makeProfile = plugins: settings:
+    {
+      extensions = defaultPlugins ++ plugins;
+      userSettings = settings;
+    };
 
 in
   {
     programs.vscode = {
       enable = true;
-      package = pkgs.vscode.fhs;
+      package = vscode-wrapped;
       mutableExtensionsDir = true;
     };
   }

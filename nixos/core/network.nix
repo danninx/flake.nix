@@ -12,7 +12,6 @@ in
     config = mkMerge [
       {
         networking = {
-          hostName = "dtop";
           networkmanager.enable = true;
           firewall = {
             allowPing = false;

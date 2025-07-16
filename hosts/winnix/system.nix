@@ -14,6 +14,8 @@ in
       ./packages.nix
     ];
 
+    networking.hostName = "wsl";
+
     dnix = { 
       latex.enable = false;
       vim.enable = true;

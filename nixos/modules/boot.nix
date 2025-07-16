@@ -41,13 +41,16 @@ in
    {
      boot = {
        loader = {
-         efi.canTouchEfiVariables = true;
+         efi = {
+           efiSysMountPoint = "/boot";
+         };
          grub = {
-           enable = true;
+           configurationLimit = 8;
            devices = [ "nodev" ];
            efiSupport = true;
-           useOSProber = true;
-           configurationLimit = 8;
+           efiInstallAsRemovable = true;
+           enable = true;
+           extraEntriesBeforeNixOS = false;
            extraEntries = ''
              menuentry "Reboot" {
              reboot
@@ -56,6 +59,7 @@ in
              halt
              }
            '';
+           useOSProber = true;
          };
        };
 
