@@ -25,6 +25,8 @@ in
 
           systemPackages = with pkgs; [
             dunst
+            hypridle
+            hyprlock
             jq
             libnotify
             rose-pine-cursor
