@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib; let
   silentBoot = config.dnix.silentBoot;
   mkIfElse = p: yes: no: mkMerge [
@@ -60,6 +60,7 @@ in
              }
            '';
            useOSProber = true;
+           theme = pkgs.p5-grub.joker;
          };
        };
 
