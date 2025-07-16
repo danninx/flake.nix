@@ -13,6 +13,7 @@ in
     nvidia
     ./packages.nix
   ];
+
   networking.hostName = "dtop";
   services.openssh.enable = true;
   hardware.bluetooth.enable = true;

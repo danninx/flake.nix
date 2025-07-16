@@ -53,6 +53,7 @@ in
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
   ];
+  programs.starship.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

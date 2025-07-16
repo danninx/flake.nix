@@ -83,6 +83,7 @@
           nixpkgs.config.allowUnfree = true;
           nixpkgs.overlays = [
             (import ./pkgs)
+            (import ./overrides)
           ];
           nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -91,7 +92,6 @@
         }
       ] ++ extraModules;
     };
-
   in
 
   {
@@ -120,8 +120,15 @@
       #     "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
       #   ];
       # };
+
+      # checks.x86_64-linux = {
+      #   "dtop" = mkCheck "dtop"; 
+      #   "jericho" = mkCheck "jericho"; 
+      # };
     };
 
-    dotfiles = "${self}/dotfiles";
+    # dotfiles = "${self}/dotfiles";
   };
+
+  
 }
