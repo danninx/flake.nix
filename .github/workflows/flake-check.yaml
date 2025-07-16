@@ -1,0 +1,25 @@
+name: Configuration Flake Check
+
+run-name: ${{ github.actor }} is checking the flake outputs
+
+on: 
+  push:
+    paths:
+      - "*.nix"
+      - "flake.*"
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: cachix/install-nix-action@v31
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - run: nix flake check
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
