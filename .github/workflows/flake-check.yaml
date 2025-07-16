@@ -1,6 +1,6 @@
 name: Configuration Flake Check
 
-run-name: ${{ github.actor }} is checking the flake outputs
+run-name: flake check for $${{ github.repository }} : ${{ github.actor }}
 
 on: 
   push:
@@ -8,6 +8,8 @@ on:
       - "*.nix"
       - "flake.*"
   pull_request:
+    branches:
+      - main
 
 jobs:
   check:
