@@ -14,7 +14,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    # Some password generators
+    # Some password generators for offline use
     diceware
     pwgen-secure
   ];  

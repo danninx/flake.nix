@@ -6,7 +6,7 @@ let
 in
 {
   options = {
-    dnix.latex.enable = mkEnableOption "TeXLive package installation and vimtex plugins for neovim";
+    dnix.latex.enable = mkEnableOption "texlive-full and zathura installation for latex writing";
   };  
 
   config = mkIf latex.enable {

@@ -1,10 +1,6 @@
 { lib, pkgs, ... }:
 
 let 
-  vscode-wrapped = (pkgs.vscode.fhs.overrideAttrs (old: rec {
-    commandLineArgs = "--user-angle=vulkan";
-  }));
-
   defaultPlugins = with pkgs.vscode-extensions; [
     vscodevim.vim
     catppuccin.catppuccin-vsc
@@ -31,7 +27,7 @@ in
   {
     programs.vscode = {
       enable = true;
-      package = vscode-wrapped;
+      package = pkgs.vscode.fhs;
       mutableExtensionsDir = true;
     };
   }

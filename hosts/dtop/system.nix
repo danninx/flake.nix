@@ -2,52 +2,37 @@
 
 let
   core = ../../nixos/core;
+  host-modules = ./modules;
   modules = ../../nixos/modules;
-  nvidia = ./nvidia.nix;
+  packages = ./packages.nix;
 in
 
 {
   imports = [
     core
     modules
-    nvidia
-    ./packages.nix
+    host-modules
+    packages
   ];
+
   networking.hostName = "dtop";
-  services.openssh.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
   dnix = { 
-    docker.enable = true;
-    hyprland.enable = true;
-    keybase.enable = true;
-    latex.enable = true;
-    plasma6.enable = true;
-    podman.enable = false;
-    silentBoot.enable = true;
-    vim.enable = true;
-    vms.enable = true;
-    wireguard.enable = false;
+    docker.enable           = true;
+    hyprland.enable         = true;
+    keybase.enable          = true;
+    latex.enable            = true;
+    plasma6.enable          = true;
+    podman.enable           = false;
+    tmux.enable             = false;
+    vim.enable              = true;
+    vms.enable              = true;
     yubikey-software.enable = true;
   };
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-      randomizedDelaySec = "45min";
-    };
-
-    optimise.automatic = true;
-    optimise.dates = [ "03:45" ];
-  };
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-  ];
+  services.openssh.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   programs.starship.enable = true;
   system.stateVersion = "24.05";

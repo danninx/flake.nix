@@ -53,7 +53,7 @@ end
 --	COLORS
 --]
 config.color_scheme = 'Catppuccin Mocha'
-config.window_background_opacity = 0.98
+config.window_background_opacity = 0.90
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.font_size = 12

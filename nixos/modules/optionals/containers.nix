@@ -12,6 +12,15 @@ in
     };
 
     config = mkMerge [
+      {
+        assertions = [
+          {
+            assertion = !docker.enable || !podman.enable;
+            message = "you may not enable both docker and podman at the same time";
+          }
+        ];
+      }
+
       # docker
       (mkIf docker.enable {
         users.extraGroups.docker.members = [ "danninx" ];
