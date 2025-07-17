@@ -1,10 +1,9 @@
-{ lib, pkgs, ... }:
+{ ... }:
 
 let
   core = ../../nixos/core;
   host-modules = ./modules;
   modules = ../../nixos/modules;
-  nvidia = ./nvidia.nix;
 in
 
 {
@@ -12,26 +11,24 @@ in
     core
     host-modules
     modules
-    nvidia
     ./packages.nix
   ];
 
-  networking.hostName = "jericho";
+  networking.hostName = "";
 
-  services.apcupsd.enable = true;
   services.openssh.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   dnix = { 
-    docker.enable           = true;
-    hyprland.enable         = true;
-    keybase.enable          = true;
-    latex.enable            = true;
-    plasma6.enable          = true;
+    docker.enable           = false;
+    hyprland.enable         = false;
+    keybase.enable          = false;
+    latex.enable            = false;
+    plasma6.enable          = false;
     podman.enable           = false;
     tmux.enable             = false;
-    vim.enable              = true;
+    vim.enable              = false;
     vms.enable              = false;
     yubikey-software.enable = false;
   };
@@ -52,6 +49,6 @@ in
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.05"; # this should come from your default configuration.nix (it's whatever version installer you used, I believe)
 }
 

@@ -1,12 +1,11 @@
 { pkgs, ... }:
 
 {
+  # default *system* packages
   environment.systemPackages = with pkgs; [
-    code-cursor
-    flameshot
+    alacritty
     git
     gnumake
-    wezterm
     wget
   ];
 }

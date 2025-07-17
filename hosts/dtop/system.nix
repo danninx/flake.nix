@@ -26,10 +26,8 @@ in
     latex.enable = true;
     plasma6.enable = true;
     podman.enable = false;
-    silentBoot.enable = true;
     vim.enable = true;
     vms.enable = true;
-    wireguard.enable = false;
     yubikey-software.enable = true;
   };
 
