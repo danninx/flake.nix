@@ -55,6 +55,9 @@ in
   ];
   programs.starship.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    flameshot
+  ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   system.stateVersion = "25.05";

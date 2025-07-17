@@ -1,6 +1,6 @@
 name: Configuration Flake Check
 
-run-name: flake check for ${{ github.repository }} : ${{ github.ref }}
+run-name: "flake check for ${{ github.repository }} : ${{ github.ref }}"
 
 on: 
   push:
