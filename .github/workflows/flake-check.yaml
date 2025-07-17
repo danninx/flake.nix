@@ -2,7 +2,7 @@ name: Configuration Flake Check
 
 run-name: "flake check for ${{ github.repository }} : ${{ github.ref }}"
 
-on: workflow-dispatch
+on: workflow_dispatch
   
 jobs:
   check:
