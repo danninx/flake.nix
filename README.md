@@ -1,21 +1,47 @@
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 # flake.nix
 
-> [!CAUTION]
-> As of June 19, 2025, I've decided to start my move away from nix. More details about that [here](). There is a `dotfiles` directory in this repository that I will be slowly migrating into, and then I plan to move back to Arch Linux, or another quirky distro towards the end of this Summer, after which this repository will be archived.
-
 NixOS system [flake](https://nixos.wiki/wiki/Flakes), 4-ish months in
 
 | ![Screenshot](./_readme/screenshot.png) 
 | - |
 | <p align="center"> [Wallpaper](https://github.com/NixOS/nixos-artwork/blob/master/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png) |
 
-## Hosts
+## Directory Structure
+I'm aware that the structure of this repository is a bit different than what's common. It's just more intuitive for my own taste
 
-| **Name** | **Description** | **Status** |
-| - | - | - |
-| dtop | My laptop (misleading name I know) | ![dtop config status](https://img.shields.io/badge/6--15--25-builds-41439a)
-| winnix | WSL on windows (until I move my desktop to linux again) | ![winnix config status](https://img.shields.io/badge/3--7--25-builds-41439a)
+### Top level overview
+
+```
+repo
+│ # TOP-LEVEL DIRECTORIES
+├── _readme         # files and assets for the README.md
+├── backgrounds     # desktop wallpaper images
+├── dotfiles        # non-nix dotfiles (because sometimes it's just more convenient and portable)
+├── home            # home manager modules
+├── hosts           # host configurations
+├── Makefile        # Makefile with useful shortcuts
+├── nixos           # nixos modules (essentially configuration presets for various items)
+├── overrides       # overrides [WIP]
+├── pkgs            # custom package definitions (for projects and packages not yet in nixpkgs)
+├── utils
+│ # TOP-LEVEL FILES
+├── flake.nix       # output definitions     
+├── flake.lock      # version locking
+└── README.md       # for github and sharing the project
+```
+
+### Host overview
+
+```
+host
+├── modules/*       # host specific modules (such as nvidia configurations, hardware tweaks, etc.)
+│
+├── hardware.nix    # copy from hardware-configuration.nix
+├── home.nix        # host specific home configurations
+├── packages.nix    # default host packages (environment)
+└── system.nix      # host specific configs
+```
 
 ## Usage
 
@@ -79,5 +105,3 @@ It also has a `make edit` for editing in sudo, as I was having a weird bug where
 - [Misterio77 flake structure template](https://github.com/Misterio77/nix-starter-configs) - Amazing reference for beginners
 - [Vimjoyer on YouTube](https://www.youtube.com/@vimjoyer) - Brought me here
 
-### Notes
-- Took the repo off public for a bit to mess with the git history
