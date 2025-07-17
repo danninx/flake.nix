@@ -6,7 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    # catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,12 +35,7 @@
 
   outputs = { 
     self, 
-    home-manager, 
-    nixpkgs, 
-    nixvim, 
     nixos-wsl,
-    plasma-manager,
-    stylix, 
     ... 
   } @ inputs:
 

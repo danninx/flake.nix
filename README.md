@@ -15,19 +15,19 @@ I'm aware that the structure of this repository is a bit different than what's c
 ```
 repo
 │ # TOP-LEVEL DIRECTORIES
-├── _readme         # files and assets for the README.md
+├── _readme         # files and assets for the `README.md`
 ├── backgrounds     # desktop wallpaper images
 ├── dotfiles        # non-nix dotfiles (because sometimes it's just more convenient and portable)
 ├── home            # home manager modules
 ├── hosts           # host configurations
-├── Makefile        # Makefile with useful shortcuts
 ├── nixos           # nixos modules (essentially configuration presets for various items)
 ├── overrides       # overrides [WIP]
 ├── pkgs            # custom package definitions (for projects and packages not yet in nixpkgs)
-├── utils
+├── utils           # for moving templating functions out of the `flake.nix`
 │ # TOP-LEVEL FILES
 ├── flake.nix       # output definitions     
 ├── flake.lock      # version locking
+├── Makefile        # Makefile with useful shortcuts
 └── README.md       # for github and sharing the project
 ```
 

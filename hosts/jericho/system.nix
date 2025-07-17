@@ -1,10 +1,10 @@
-{ lib, pkgs, ... }:
+{ ... }:
 
 let
   core = ../../nixos/core;
   host-modules = ./modules;
   modules = ../../nixos/modules;
-  nvidia = ./nvidia.nix;
+  packages = ./packages.nix;
 in
 
 {
@@ -12,16 +12,10 @@ in
     core
     host-modules
     modules
-    nvidia
-    ./packages.nix
+    packages
   ];
 
   networking.hostName = "jericho";
-
-  services.apcupsd.enable = true;
-  services.openssh.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
   dnix = { 
     docker.enable           = true;
@@ -36,17 +30,9 @@ in
     yubikey-software.enable = false;
   };
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-      randomizedDelaySec = "45min";
-    };
-
-    optimise.automatic = true;
-    optimise.dates = [ "03:45" ];
-  };
+  services.openssh.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   programs.starship.enable = true;
 
@@ -54,4 +40,3 @@ in
 
   system.stateVersion = "25.05";
 }
-
