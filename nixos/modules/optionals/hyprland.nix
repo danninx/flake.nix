@@ -19,7 +19,7 @@ in
 
         environment = {
           sessionVariables = {
-            # AQ_DRM_DEVICES = "/dev/dri/card1";
+            AQ_DRM_DEVICES = "/dev/dri/card1";
             NIXOS_OZONE_WL = "1";
           };
 
