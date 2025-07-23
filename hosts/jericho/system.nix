@@ -37,6 +37,14 @@ in
   programs.starship.enable = true;
 
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = "danninx";
+    };
+
+    defaultSession = "hyprland";
+  };
 
   system.stateVersion = "25.05";
 }
