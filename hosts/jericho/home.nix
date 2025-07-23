@@ -1,8 +1,15 @@
 { pkgs, ... }:
 
+let
+  alwaysOn = ../../home/modules/always;
+in
 {
   imports = [
-    ../../home/modules
+    alwaysOn
+    ../../home/modules/optional/fuzzel.nix
+    ../../home/modules/optional/firefox.nix
+    ../../home/modules/optional/stylix.nix
+    ../../home/modules/optional/vscode.nix
   ];
 
   home.username = "danninx";

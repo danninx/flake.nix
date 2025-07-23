@@ -5,10 +5,19 @@ let
   getFileName = path: lib.last (lib.splitString "/" ( toString path)); 
   link = path: {name = (getFileName path); value = { source = symlink path;};};
   symlinks = list: builtins.listToAttrs (map link list);
+  alwaysOn = ../../home/modules/always;
 in
 {
   imports = [
-    ../../home/modules
+    alwaysOn
+
+    ../../home/modules/optional/kde
+
+    ../../home/modules/optional/fuzzel.nix
+    ../../home/modules/optional/firefox.nix
+    ../../home/modules/optional/libvirtd.nix
+    ../../home/modules/optional/stylix.nix
+    ../../home/modules/optional/vscode.nix
   ];
 
   home.username = "danninx";

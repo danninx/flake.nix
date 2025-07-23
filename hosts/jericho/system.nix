@@ -22,7 +22,7 @@ in
     hyprland.enable         = true;
     keybase.enable          = true;
     latex.enable            = true;
-    plasma6.enable          = true;
+    plasma6.enable          = false;
     podman.enable           = false;
     tmux.enable             = false;
     vim.enable              = true;
