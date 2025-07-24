@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 let
   core = ../../nixos/core;
@@ -45,6 +45,10 @@ in
 
     defaultSession = "hyprland";
   };
+
+  # i2c/ddc for monitor brightness management
+  hardware.i2c.enable = true;
+  environment.systemPackages = [ pkgs.ddcutil ];
 
   system.stateVersion = "25.05";
 }
