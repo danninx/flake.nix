@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -25,13 +25,17 @@ in
 
           systemPackages = with pkgs; [
             dunst
+            eww
             hypridle
             hyprlock
+            hyprshot
             jq
             libnotify
             rose-pine-cursor
+            swappy
             swww 
             waybar
+            wl-clipboard
           ];
         };
 

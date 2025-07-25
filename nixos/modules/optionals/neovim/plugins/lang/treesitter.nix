@@ -19,6 +19,8 @@
       html
       javascript
       typescript
+
+      yuck
     ];
   };
 }

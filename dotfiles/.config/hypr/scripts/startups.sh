@@ -1,16 +1,27 @@
 # kill existing
-items="dunst swww-daemon waybar"
-for item in $items; do
+stop=(
+	"dunst" 
+	"swww-daemon" 
+	"eww"
+)
+
+start=(
+	"dunst"
+	"swww-daemon"
+	"eww daemon"
+)
+
+for item in ${items[@]}; do
 	pkill -f $item
 done
 
 # used in case these aren't up after startup
-dunst &
-swww-daemon &
-waybar &
-hyprctl setcursor BreezeX-RosePine-Linux 28
 
 sleep 1
+
+for item in ${items[@]}; do
+	eval "$item &"
+done
 
 # restore previous wallpaper
 STATE_FILE="$HOME/.background_cycle_state"
@@ -32,4 +43,5 @@ esac
 
 dunstify -h string:x-dunst-stack-tag:hypr-theme-change "Current Wallpaper:\n $wp"
 swww img $wp --transition-type=wipe --transition-duration=1 --transition-fps=244
+eww open example
 

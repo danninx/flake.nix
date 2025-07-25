@@ -9,7 +9,6 @@
       bun
       discord
       fuzzel
-      go
       libreoffice-qt
       hunspell
       lazygit
@@ -20,7 +19,6 @@
       qbittorrent
       remmina
       sioyek
-      tim
       unzip
       vlc
       wireshark

@@ -57,9 +57,10 @@ format = '[\(java( ${version})\)]($style)'
 style = 'bold bright-red'
 
 [nix_shell]
-format = '[(\($symbol $state-$name\))]($style)'
+format = '[\(nix-shell\)]($style)'
+impure_msg = ''
 style = 'bold bright-blue'
-symbol = '❄️'
+symbol = ''
 
 [os]
 disabled = false

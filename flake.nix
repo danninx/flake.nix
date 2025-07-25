@@ -31,6 +31,8 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    tim.url = "github:danninx/tim"; # :)
   };
 
   outputs = { 

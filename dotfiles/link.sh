@@ -1,6 +1,19 @@
 DOTS=/home/danninx/dnix/dotfiles
-ln -s $DOTS/.wezterm.lua $HOME/.wezterm.lua
-ln -s $DOTS/.config/hypr $HOME/.config/hypr
-ln -s $DOTS/.config/dunst $HOME/.config/dunst
-ln -s $DOTS/.config/starship.toml $HOME/.config/starship.toml
-ln -s $DOTS/.config/waybar $HOME/.config/waybar
+list=( \
+    ".config/dunst" \
+    ".config/eww" \
+    ".config/hypr" \
+    ".config/waybar" \
+    ".config/starship.toml" \
+    ".wezterm.lua" \
+)
+
+for item in ${list[@]}; do
+    src="$DOTS/$item"
+    dest="$HOME/$item"
+
+    unlink $dest || true
+
+    echo "Linking $src to $dest"
+    ln -s $src $dest || true
+done

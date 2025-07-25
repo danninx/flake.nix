@@ -35,6 +35,7 @@ in
   hardware.bluetooth.powerOnBoot = true;
 
   programs.starship.enable = true;
+  programs.tim.enable = true;
 
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
   services.displayManager = {

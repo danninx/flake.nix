@@ -1,0 +1,46 @@
+(defwidget greeter [?text name]
+    (box    :orientation "horizontal"
+            :halign "center" 
+        (button :onclick "notify-send 'hello' 'hello, ${name}'"
+    text)))
+
+(defvar time-visible true)
+
+(defpoll time   :interval "1s"
+                :initial "initial"
+                :run-while time-visible
+    `date +%H:%M:%S`
+)
+
+(defwidget clock []
+    (box    :orientation "horizontal"
+            :halign "right"
+            (label :text time)
+))
+
+(defwidget main []
+    (box    :orientation "horizontal"
+            :halign "center"
+        (greeter    :name "tim"
+                    :text "hello!")     
+        (clock)     
+    )
+)
+
+(defwindow example
+        :monitor 0
+        :geometry (geometry :x "0%"
+                            :y "5px"
+                            :width "1914"
+                            :height "30px"
+                            :anchor "top center")
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :reserve (struts :distance "40px" :side "top")
+        :windowtype "dock"
+        :wm-ignore false
+    (box
+    (main)    
+    )
+)

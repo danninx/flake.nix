@@ -23,6 +23,7 @@ rec {
         inputs.nixvim.nixosModules.nixvim
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
+        inputs.tim.nixosModules.default
 
         {
           home-manager.backupFileExtension = "home.bak";
