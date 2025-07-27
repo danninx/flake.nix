@@ -26,8 +26,8 @@ in
     podman.enable           = false;
     tmux.enable             = false;
     vim.enable              = true;
-    vms.enable              = true;
-    yubikey-software.enable = true;
+    vms.enable              = false;
+    yubikey-software.enable = false;
   };
 
   services.openssh.enable = true;

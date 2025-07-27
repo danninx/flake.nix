@@ -12,7 +12,6 @@ in
     alwaysOn
 
     ../../home/modules/optional/kde
-
     ../../home/modules/optional/fuzzel.nix
     ../../home/modules/optional/firefox.nix
     ../../home/modules/optional/libvirtd.nix

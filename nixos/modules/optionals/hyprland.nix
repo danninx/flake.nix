@@ -28,10 +28,12 @@ in
             eww
             hypridle
             hyprlock
+            hyprpicker
             hyprshot
             jq
             libnotify
             rose-pine-cursor
+            socat
             swappy
             swww 
             waybar

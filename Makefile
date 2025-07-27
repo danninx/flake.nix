@@ -1,8 +1,8 @@
-dtop:
-	git add _readme dotfiles home hosts nixos .gitignore flake.lock flake.nix Makefile README.md
+sync:
+	git add .
+dtop: sync
 	sudo nixos-rebuild switch --flake ".#dtop"
-jericho:
-	git add _readme dotfiles home hosts nixos .gitignore flake.lock flake.nix Makefile README.md
+jericho: sync
 	sudo nixos-rebuild switch --flake ".#jericho"
 links:
 	bash ./dotfiles/link.sh

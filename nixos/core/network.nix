@@ -3,7 +3,12 @@
 {
   config = {
     networking = {
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = true;
+        plugins = with pkgs; [
+          networkmanager-openvpn
+        ];
+      };
       firewall = {
         allowPing = false;
         enable = true;

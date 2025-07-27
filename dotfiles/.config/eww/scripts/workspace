@@ -1,0 +1,35 @@
+getAll () {
+	hyprctl workspaces -j | jq '[.[] | select(.ispersistent == true)] | .[].id'
+}
+
+getActive () {
+	hyprctl activeworkspace -j | jq '.id'
+}
+
+getSocket () {
+	socat -u UNIX-CONNECT:/$XDG_RUNTIME_DIR/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | grep "^workspace>>"
+}
+
+workspace_out () {
+	ALLWORKSPACES=$(getAll)
+	mapped=()
+	for ws in ${ALLWORKSPACES[@]}; 
+	
+	do
+		if [[ $ws == $1 ]]; then	
+			mapped+=("(button :valign \"center\" :class \"workspace-active\" )")
+		else
+			mapped+=("(button :valign \"center\" :class \"workspace-inactive\" )")
+		fi
+	done
+
+	echo 	"(box :class \"workspace\" :height 20 :orientation \"horizontal\" :spacing 10\
+				${mapped[@]}\
+			)"
+}
+
+workspace_out $(getActive)
+
+socat -u UNIX-CONNECT:/$XDG_RUNTIME_DIR/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r line; do
+workspace_out $(getActive)
+done

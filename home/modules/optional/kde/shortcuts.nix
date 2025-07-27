@@ -1,19 +1,14 @@
-{ config, lib, ... }:
+{ ... }:
 
-with lib;
-let
-  plasma = config.dnix.plasma6;
-in
-  {
-    config = mkIf plasma.enabled {
-      programs.plasma.krunner.shortcuts.launch = "Meta+Shift+!";
-      programs.plasma = {
-        enable = true;
+{
+  programs.plasma.krunner.shortcuts.launch = "Meta+Shift+!";
+  programs.plasma = {
+    enable = true;
 
-      # auto generated shortcuts -- format these sometime
-      shortcuts = {
-        ksmserver = {
-          "Lock Session" = "Meta+L";
+    # auto generated shortcuts -- format these sometime
+    shortcuts = {
+      ksmserver = {
+        "Lock Session" = "Meta+L";
         };
 
         kwin = {
@@ -72,6 +67,5 @@ in
         "services/net.local.fuzzel.desktop"."_launch" = "Meta";
       };
     };
-  };
-}
+  }
 

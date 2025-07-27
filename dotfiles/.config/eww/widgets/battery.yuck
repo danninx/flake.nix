@@ -1,0 +1,12 @@
+(defpoll batt	:interval "10s"
+				:initial "initial"
+	`upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage | awk '{ print $2 }'`
+)
+
+(defwidget status-power []
+	(box	:orientation "horizontal"
+			:halign "right"
+			(label :text batt)
+))
+
+
