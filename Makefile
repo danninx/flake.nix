@@ -1,3 +1,5 @@
+default: sync
+	sudo nixos-rebuild switch --flake ".#$(shell hostname)"
 sync:
 	git add .
 dtop: sync
@@ -6,5 +8,5 @@ jericho: sync
 	sudo nixos-rebuild switch --flake ".#jericho"
 links:
 	bash ./dotfiles/link.sh
-edit:
-	sudo -E -s nvim .
+
+PHONY: default sync dtop jericho links

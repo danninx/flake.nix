@@ -14,7 +14,11 @@
       lazygit
       nix-prefetch-git
       obsidian
+
+      protonmail-desktop
       proton-pass
+      protonvpn-gui
+
       python312
       qbittorrent
       remmina
