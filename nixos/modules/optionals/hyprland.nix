@@ -25,13 +25,13 @@ in
 
           systemPackages = with pkgs; [
             dunst
-            eww
             hypridle
             hyprlock
             hyprpicker
             hyprshot
             jq
             libnotify
+            networkmanagerapplet
             rose-pine-cursor
             socat
             swappy

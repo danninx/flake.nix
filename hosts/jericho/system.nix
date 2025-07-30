@@ -37,6 +37,7 @@ in
   programs.starship.enable = true;
   programs.tim.enable = true;
 
+  environment.sessionVariables.EDITOR = "nvim";
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
   services.displayManager = {
     autoLogin = {

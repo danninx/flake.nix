@@ -1,49 +1,43 @@
 {
 	"layer": "top",
+	"position": "left",
+	"width": 28,
+	"margin": "2 0 2 2",
+	"spacing": 2,
 	"modules-left": [
 		"hyprland/workspaces"
-	],
-	"modules-center": ["clock"],
-	"modules-right": ["user", "gamemode", "cpu", "network"],
+  ],
+  "modules-center": [
+  ],
+  "modules-right": [
+	  "custom/nmconnection",
+	  "custom/sep",
+	  "clock"
+  ],
 
-	"clock": {
-		"format": "{:%H:%M}",
-		"format-alt": "{  %d·%m·%y}",
-		"tooltip-format": "<span>{calendar}</span>",
-		"calendar": {
-			"mode": "month",
-			"format": {
-				"months": "<span color='#ff6699'><b>{}</b></span>",
-				"days": "<span color='#cdd6f4'><b>{}</b></span>",
-				"weekdays": "<span color='#7CD37C'><b>{}</b></span>",
-				"today": "<span color='#ffcc66'><b>{}</b></span>"
-			}
-		}
-	},
+  "custom/nmconnection": {
+	  "exec": "$HOME/.config/waybar/scripts/nmconnection.sh",
+	  "format": "<span>{}</span>",
+	  "justify": "center",
+	  "interval": 5,
+	  "on-click": "nm-connection-editor"
+  },
 
-	"gamemode": {
-		"format": "{glyph}",
-		"format-alt": "{glyph} {count}",
-		"glyph": "",
-		"hide-not-running": true,
-		"use-icon": true,
-		"icon-name": "input-gaming-symbolic",
-		"icon-spacing": 4,
-		"icon-size": 20,
-		"tooltip": true,
-		"tooltip-format": "Games running: {count}"
-	},
+  "hyprland/workspaces": {
+	  "format": "{icon}",
+	  "on-click": "activate",
+	  "on-scroll-up": "hyprctl dispatch workspace e-1",
+	  "on-scroll-down": "hyprctl dispatch workspace e+1",
+	  "format-icons": {
+		  "active": "",
+		  "urgent": "",
+		  "default": ""
+	  }
+  },
 
-	"hyprland/workspaces": {
-		"format": "{name} : {icon}",
-		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"5": "",
-			"active": "",
-			"default": ""
-		}
-	}
+  "clock": {
+	  "tooltip": true,
+	  "format": "{:%H\n%M}",
+	  "tooltip-format": "{:%Y-%m-%d}"
+  }
 }

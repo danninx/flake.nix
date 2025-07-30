@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   DefaultExtensionSettings = {
@@ -6,25 +6,26 @@ let
         "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
-          privacy_browsing = true;
+          private_browsing = true;
         };
 
         #Privacy Badger:
         "jid1-MnnxcxisBPnSXQ@jetpack" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
-          privacy_browsing = true;
+          private_browsing = true;
         };
 
         #Proton Pass:
         "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
           installation_mode = "normal_installed";
-          privacy_browsing = true;
+          private_browsing = true;
         };
       };
 in
   {
+    home.file.".mozilla/firefox/danninx/search.json.mozlz4".force = lib.mkForce true;
     programs.firefox = {
       enable = true;
       languagePacks = [ "de" "en-US" ];

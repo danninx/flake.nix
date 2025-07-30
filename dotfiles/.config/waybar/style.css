@@ -1,0 +1,34 @@
+@import "mocha.css";
+
+* {
+	border: none;
+	border-radius: 0px;
+	font-family: "FiraCode Mono";
+	font-weight: bold;
+	font-size: 16px;
+	min-height: 0;
+	color: @mauve;
+}
+
+window#waybar {
+	background: @mantle;
+}
+
+/* Workspace Buttons */
+#workspaces button label{
+	margin-top: 10px;
+	color: @mauve;
+}
+
+#workspaces button.active label {
+	color: @rosewater;
+}
+
+#clock {
+	margin-bottom: 10px;
+	color: @mauve;
+}
+
+#custom-nmconnection {
+	margin-bottom: 15px;
+}

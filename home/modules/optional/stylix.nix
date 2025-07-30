@@ -47,6 +47,7 @@ in
           profileNames = [ "danninx" ];
         };
         fuzzel.enable = true;
+        gtk.enable = true;
         lazygit.enable = true;
         kde.enable = true;
         nixvim = {
