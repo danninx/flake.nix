@@ -13,6 +13,7 @@ in
     modules
     host-modules
     packages
+    ../../nixos/modules/explicit/java.nix
   ];
 
   networking.hostName = "dtop";
@@ -35,6 +36,8 @@ in
   hardware.bluetooth.powerOnBoot = true;
 
   programs.starship.enable = true;
+  programs.tim.enable = true;
+
   system.stateVersion = "24.05";
 }
 

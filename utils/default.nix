@@ -26,7 +26,7 @@ rec {
         inputs.tim.nixosModules.default
 
         {
-          home-manager.backupFileExtension = "home.bak";
+          home-manager.backupFileExtension = "new.bak";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.danninx = import homeconfig;
