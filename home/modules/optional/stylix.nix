@@ -59,6 +59,7 @@ in
             signColumn = true;
           };
         };
+        qt.enable = true;
       };
     };
   }

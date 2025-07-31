@@ -24,6 +24,16 @@
       vlc
       wireshark
       yazi
+
+      ghc
+      (haskell-language-server.override {
+         supportedGhcVersions = [ "984" ];
+      })
+      stack
+      haskellPackages.cabal-fmt
+      haskellPackages.cabal-gild
+    ] ++ [ 
+      kdePackages.okular 
     ];
 
     shell = pkgs.zsh;

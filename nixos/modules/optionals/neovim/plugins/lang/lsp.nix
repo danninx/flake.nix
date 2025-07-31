@@ -42,6 +42,11 @@
           };
         };
 
+        hls = {
+          enable = true;
+          installGhc = true;
+        };
+
         nixd.enable = true;
         nixd.autostart = true;
       };
