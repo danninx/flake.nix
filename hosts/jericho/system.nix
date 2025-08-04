@@ -26,7 +26,7 @@ in
     podman.enable           = false;
     tmux.enable             = false;
     vim.enable              = true;
-    vms.enable              = false;
+    vms.enable              = true;
     yubikey-software.enable = false;
   };
 
