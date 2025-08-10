@@ -17,3 +17,6 @@ for item in ${list[@]}; do
     echo "Linking $src to $dest"
     ln -s $src $dest || true
 done
+
+echo "Linking pfp"
+ln -s "$DOTS/kirbyyyy.png" "$HOME/.face"
