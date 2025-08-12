@@ -6,38 +6,49 @@
 	"spacing": 2,
 	"modules-left": [
 		"hyprland/workspaces"
-  ],
-  "modules-center": [
-  ],
-  "modules-right": [
-	  "custom/nmconnection",
-	  "custom/sep",
-	  "clock"
-  ],
+	],
+	"modules-center": [
+	],
+	"modules-right": [
+		"custom/nmconnection",
+		"battery",
+		"custom/sep",
+		"clock"
+	],
 
-  "custom/nmconnection": {
-	  "exec": "$HOME/.config/waybar/scripts/nmconnection.sh",
-	  "format": "<span>{}</span>",
-	  "justify": "center",
-	  "interval": 5,
-	  "on-click": "nm-connection-editor"
-  },
+	"custom/nmconnection": {
+		"exec": "$HOME/.config/waybar/scripts/nmconnection.sh",
+		"format": "<span>{}</span>",
+		"justify": "center",
+		"interval": 5,
+		"on-click": "nm-connection-editor"
+	},
 
-  "hyprland/workspaces": {
-	  "format": "{icon}",
-	  "on-click": "activate",
-	  "on-scroll-up": "hyprctl dispatch workspace e-1",
-	  "on-scroll-down": "hyprctl dispatch workspace e+1",
-	  "format-icons": {
-		  "active": "",
-		  "urgent": "",
-		  "default": ""
-	  }
-  },
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"format-icons": {
+			"active": "",
+			"urgent": "",
+			"default": ""
+		}
+	},
 
-  "clock": {
-	  "tooltip": true,
-	  "format": "{:%H\n%M}",
-	  "tooltip-format": "{:%Y-%m-%d}"
-  }
+	"battery": {
+		"interval": 30,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}%",
+		"max-length": 25
+	},
+
+	"clock": {
+		"tooltip": true,
+		"format": "{:%H\n%M}",
+		"tooltip-format": "{:%Y-%m-%d}"
+	}
 }

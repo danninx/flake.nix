@@ -33,6 +33,7 @@ in
   services.openssh.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   programs.starship.enable = true;
   programs.tim.enable = true;

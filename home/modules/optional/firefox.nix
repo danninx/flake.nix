@@ -126,6 +126,15 @@ in
                 icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                 definedAliases = [ "@no" ];
               };
+
+              "Reddit" = {
+                urls = [
+                  {
+                    template = "https://www.reddit.com/search/?q=%s";
+                  }
+                ];
+                definedAliases = [ "@red" ];
+              };
             };
           };
           settings = {

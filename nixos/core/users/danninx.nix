@@ -20,6 +20,7 @@
       qbittorrent
       remmina
       sioyek
+      tor-browser-bundle-bin
       unzip
       vlc
       wireshark

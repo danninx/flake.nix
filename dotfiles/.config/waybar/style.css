@@ -24,6 +24,11 @@ window#waybar {
 	color: @rosewater;
 }
 
+#battery {
+	margin-bottom: 17px;
+	font-size: 12px;
+}
+
 #clock {
 	margin-bottom: 10px;
 	color: @mauve;
