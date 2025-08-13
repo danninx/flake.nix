@@ -35,7 +35,6 @@ in
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
 

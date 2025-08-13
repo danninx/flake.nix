@@ -11,6 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = "github:nix-community/impermanence";
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +38,7 @@
 
   outputs = { 
     self, 
+    impermanence,
     nixos-wsl,
     ... 
   } @ inputs:
@@ -49,7 +52,13 @@
       # Configurations for different systems go here
       "dtop" = utils.mkDefaultSystem "dtop";
       "jericho" = utils.mkDefaultSystem "jericho";
-      "takarabune" = utils.mkDefaultSystem "takarabune";
+      
+      "takarabune" = utils.mkSystem "takarabune" {
+        system = "x86_64-linux";
+        extraModules = [
+          impermanence.nixosModules.impermanence
+        ];
+      };
 
       # WSL - look into changing this name at home
       "nixos" = utils.mkSystem "winnix" {

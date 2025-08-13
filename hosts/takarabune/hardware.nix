@@ -37,12 +37,14 @@
     { device = "/dev/disk/by-uuid/412d3186-aec3-4aea-b631-331954fec74c";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      neededForBoot = true;
     };
 
   fileSystems."/var/log" =
     { device = "/dev/disk/by-uuid/412d3186-aec3-4aea-b631-331954fec74c";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" "noatime" ];
+      neededForBoot = true;
     };
 
   fileSystems."/boot" =

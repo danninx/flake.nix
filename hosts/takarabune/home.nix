@@ -21,6 +21,8 @@ in
   home.stateVersion = "25.05";
   home.sessionVariables = {};
 
+  gtk.gtk2.force = true;
+
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     nerd-fonts.fira-code
