@@ -49,6 +49,7 @@
       # Configurations for different systems go here
       "dtop" = utils.mkDefaultSystem "dtop";
       "jericho" = utils.mkDefaultSystem "jericho";
+      "takarabune" = utils.mkDefaultSystem "takarabune";
 
       # WSL - look into changing this name at home
       "nixos" = utils.mkSystem "winnix" {
