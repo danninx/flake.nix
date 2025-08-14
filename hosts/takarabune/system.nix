@@ -19,10 +19,10 @@ in
 
   dnix = { 
     docker.enable           = false;
-    hyprland.enable         = false;
+    hyprland.enable         = true;
     keybase.enable          = false;
     latex.enable            = false;
-    plasma6.enable          = true;
+    plasma6.enable          = false;
     podman.enable           = false;
     tmux.enable             = false;
     vim.enable              = true;
@@ -35,8 +35,18 @@ in
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = "danninx";
+    };
+
+    defaultSession = "hyprland";
+  };
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
+  hardware.i2c.enable = true;
 
   programs.starship.enable = true;
 

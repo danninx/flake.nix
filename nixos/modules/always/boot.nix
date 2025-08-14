@@ -5,13 +5,14 @@
     boot = {
       loader = {
         efi = {
+          canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
         };
         grub = {
           configurationLimit = 8;
           devices = [ "nodev" ];
           efiSupport = true;
-          efiInstallAsRemovable = true;
+          # efiInstallAsRemovable = true;
           enable = true;
           extraEntriesBeforeNixOS = false;
           extraEntries = ''

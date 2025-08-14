@@ -51,7 +51,7 @@ in
 
   # i2c/ddc for monitor brightness management
   hardware.i2c.enable = true;
-  environment.systemPackages = [ pkgs.ddcutil ];
+  environment.systemPackages = [ ];
 
   system.stateVersion = "25.05";
 }

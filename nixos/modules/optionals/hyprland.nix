@@ -24,6 +24,7 @@ in
           };
 
           systemPackages = with pkgs; [
+            ddcutil
             dunst
             hypridle
             hyprlock
