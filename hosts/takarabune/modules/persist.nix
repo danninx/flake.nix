@@ -26,7 +26,7 @@
     '';
 
     postMountCommands = lib.mkBefore ''
-      ln -snft /persist/etc/machine-id /etc/machine-id
+      ln -snfT /persist/etc/machine-id /etc/machine-id
     '';
   };
 
@@ -39,12 +39,9 @@
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
       "/etc/nixos"
+      "/etc/ssh"
     ];
     files = [
-      "/etc/ssh_host_ed25519_key"
-      "/etc/ssh_host_ed25519_key.pub"
-      "/etc/ssh_host_rsa_key"
-      "/etc/ssh_host_rsa_key.pub"
     ];
   };
 

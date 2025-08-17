@@ -95,8 +95,8 @@ in
           isDefault = true;
           name = "danninx";
           search = {
-            default = "DuckDuckGo";
-            privateDefault = "DuckDuckGo";
+            default = "ddg";
+            privateDefault = "ddg";
 
             engines = {
               "Nix Packages" = {

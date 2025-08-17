@@ -4,17 +4,15 @@ let
   checkfile = path: if builtins.pathExists path
                     then [ builtins.readFile path ]
                     else [];
-  pki_1 = (checkfile ../../secrets/1.pki); # currently not working? looking into it later
+  pki_1 = (checkfile ../../secrets/1.pki);
 in
 {
   security = {
-    # CC PKI
     pki.certificates = [
     ] ++ pki_1;
   };
 
   environment.systemPackages = with pkgs; [
-    # Some password generators for offline use
     diceware
     pwgen-secure
   ];  
@@ -22,5 +20,14 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  services.openssh = {
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "danninx" ];
+    };
   };
 }
