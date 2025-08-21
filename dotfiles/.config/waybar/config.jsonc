@@ -8,11 +8,11 @@
 		"hyprland/workspaces"
 	],
 	"modules-center": [
+		"tray"
 	],
 	"modules-right": [
-		"custom/nmconnection",
+		"pulseaudio",
 		"battery",
-		"custom/sep",
 		"clock"
 	],
 
@@ -37,8 +37,9 @@
 	},
 
 	"battery": {
-		"interval": 30,
+		"interval": 5,
 		"states": {
+			"good": 95,
 			"warning": 30,
 			"critical": 15
 		},
@@ -50,5 +51,26 @@
 		"tooltip": true,
 		"format": "{:%H\n%M}",
 		"tooltip-format": "{:%Y-%m-%d}"
+	},
+
+	"pulseaudio": {
+        "max-volume": 150,
+        "scroll-step": 10,
+        "format": " {icon}",
+        "tooltip-format": "{volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
+        },
+        "on-click": "pwvucontrol"
+    },
+
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10
 	}
 }

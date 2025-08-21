@@ -14,6 +14,14 @@ window#waybar {
 	background: @mantle;
 }
 
+tooltip {
+	background: @mantle;
+}
+
+tooltip label {
+	color: @rosewater;
+}
+
 /* Workspace Buttons */
 #workspaces button label{
 	margin-top: 10px;
@@ -29,6 +37,10 @@ window#waybar {
 	font-size: 12px;
 }
 
+#battery.charging {
+	color: @green;
+}
+
 #clock {
 	margin-bottom: 10px;
 	color: @mauve;
@@ -36,4 +48,13 @@ window#waybar {
 
 #custom-nmconnection {
 	margin-bottom: 15px;
+}
+
+#pulseaudio {
+	margin-bottom: 17px;
+}
+
+#tray {
+	padding: 0 6px;
+	margin-bottom: 17px;
 }

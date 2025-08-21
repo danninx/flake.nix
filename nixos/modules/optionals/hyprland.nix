@@ -33,6 +33,7 @@ in
             jq
             libnotify
             networkmanagerapplet
+            pwvucontrol
             rose-pine-cursor
             socat
             swappy
