@@ -15,12 +15,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver.xkb = {
      layout = "us";
      variant = "";
   };
   
-  # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.browsed.enable = false;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 }

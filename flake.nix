@@ -2,9 +2,7 @@
   description = "Danninx configuration files";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -39,7 +37,6 @@
   outputs = { 
     self, 
     impermanence,
-    nixos-wsl,
     ... 
   } @ inputs:
 
@@ -49,7 +46,6 @@
   in
   {
     nixosConfigurations = {
-      # Configurations for different systems go here
       "dtop" = utils.mkDefaultSystem "dtop";
       "jericho" = utils.mkDefaultSystem "jericho";
       
@@ -57,14 +53,6 @@
         system = "x86_64-linux";
         extraModules = [
           impermanence.nixosModules.impermanence
-        ];
-      };
-
-      # WSL - look into changing this name at home
-      "nixos" = utils.mkSystem "winnix" {
-        system = "x86_64-linux";
-        extraModules = [
-          nixos-wsl.nixosModules.default
         ];
       };
     };
