@@ -14,6 +14,7 @@
       lazygit
       nix-prefetch-git
       obsidian
+      postman
       proton-pass
       protonvpn-gui
       python312

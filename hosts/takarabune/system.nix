@@ -18,10 +18,10 @@ in
     networking.hostName = "takarabune";
 
     dnix = { 
-      docker.enable           = false;
+      docker.enable           = true;
       hyprland.enable         = true;
-      keybase.enable          = false;
-      latex.enable            = false;
+      keybase.enable          = true;
+      latex.enable            = true;
       plasma6.enable          = false;
       podman.enable           = false;
       tmux.enable             = false;

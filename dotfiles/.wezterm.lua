@@ -52,7 +52,7 @@ end
 --[
 --	COLORS
 --]
-config.color_scheme = 'catppuccin-mocha'
+config.color_scheme = 'Catppuccin Mocha'
 config.window_background_opacity = 0.90
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
@@ -71,12 +71,14 @@ config.font = wezterm.font_with_fallback {
 }
 
 config.colors = {
+	background = mocha.base,
+
 	tab_bar = {
-		background = mocha.surface0,
+		background = mocha.base,
 
 		active_tab = {
-			bg_color = mocha.crust,
-			fg_color = mocha.overlay2,
+			bg_color = mocha.base,
+			fg_color = mocha.mauve,
 		},
 
 		inactive_tab = {
@@ -85,18 +87,18 @@ config.colors = {
 		},
 
 		inactive_tab_hover = {
-			bg_color = mocha.surface1,
-			fg_color = mocha.text;
+			bg_color = mocha.base,
+			fg_color = mocha.green;
 		},
 
 		new_tab = {
-			bg_color = mocha.surface0,
+			bg_color = mocha.base,
 			fg_color = mocha.text,
 		},
 
 		new_tab_hover = {
-			bg_color = mocha.surface2,
-			fg_color = mocha.text;
+			bg_color = mocha.base,
+			fg_color = mocha.green;
 		},
 	},
 }
