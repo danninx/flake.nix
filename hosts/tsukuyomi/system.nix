@@ -56,5 +56,8 @@ in
   hardware.i2c.enable = true;
   environment.systemPackages = [ ];
 
+  users.mutableUsers = false;
+  users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
+
   system.stateVersion = "25.05";
 }

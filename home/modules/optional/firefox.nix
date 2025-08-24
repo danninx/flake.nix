@@ -87,6 +87,7 @@ in
           "browser.newtabpage.activity-stream.showSponsored" = lock false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock false;
           "browser.newtabpage.activity-stream.system.showSponsored" = lock false;
+          "browser.topsites.contile.enabled" = lock false;
         };
 
         WebsiteFilter = {
