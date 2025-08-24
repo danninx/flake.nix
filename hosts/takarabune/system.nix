@@ -10,8 +10,8 @@ in
   {
     imports = [
       core
-      modules
       host-modules
+      modules
       packages
     ];
 

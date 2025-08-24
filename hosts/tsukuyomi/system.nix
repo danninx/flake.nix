@@ -21,9 +21,9 @@ in
   boot.loader.efi.efiSysMountPoint = lib.mkForce "/boot/efi";
 
   dnix = { 
-    docker.enable           = false;
+    docker.enable           = true;
     hyprland.enable         = true;
-    keybase.enable          = false;
+    keybase.enable          = true;
     latex.enable            = false;
     plasma6.enable          = false;
     podman.enable           = false;
