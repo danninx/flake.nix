@@ -46,8 +46,7 @@
   in
   {
     nixosConfigurations = {
-      "dtop" = utils.mkDefaultSystem "dtop";
-      "jericho" = utils.mkDefaultSystem "jericho";
+      "tsukuyomi" = utils.mkDefaultSystem "tsukuyomi";
       
       "takarabune" = utils.mkSystem "takarabune" {
         system = "x86_64-linux";

@@ -17,11 +17,6 @@ in
     pwgen-secure
   ];  
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   services.openssh = {
     settings = {
       PasswordAuthentication = false;
