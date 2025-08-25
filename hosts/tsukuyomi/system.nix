@@ -34,7 +34,6 @@ in
   };
 
   services.openssh.enable = true;
-  programs.ssh.startAgent = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
@@ -54,7 +53,7 @@ in
 
   # i2c/ddc for monitor brightness management
   hardware.i2c.enable = true;
-  environment.systemPackages = [ ];
+  environment.systemPackages = [ pkgs.kdePackages.dolphin ];
 
   users.mutableUsers = false;
   users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
