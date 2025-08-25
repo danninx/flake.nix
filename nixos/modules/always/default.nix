@@ -5,5 +5,6 @@
     ./pipewire.nix
     ./sddm.nix
     ./stylix.nix
+    ./usb-tools.nix
   ];
 }
