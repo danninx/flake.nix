@@ -2,7 +2,8 @@ pragma Singleton
 
 import QtQuick
 import Quickshell
-import "themes"
+
+import "colors"
 
 Singleton {
     id: root

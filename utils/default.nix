@@ -31,7 +31,7 @@ rec {
           home-manager.useUserPackages = true;
           home-manager.users.danninx = import homeconfig;
           home-manager.extraSpecialArgs = { inherit inputs outputs system; };
-          home-manager.sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+          home-manager.sharedModules = [ ];
 
           nixpkgs = {
             config.allowUnfree = true;

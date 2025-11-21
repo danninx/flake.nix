@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 with lib;
 let
@@ -34,14 +34,13 @@ in
             libnotify
             networkmanagerapplet
             pwvucontrol
-            quickshell
             rose-pine-cursor
             socat
             swappy
             swww 
             waybar
             wl-clipboard
-          ];
+          ] ++ [ inputs.quickshell.packages.x86_64-linux.default ];
         };
 
         programs.hyprlock.enable = true;

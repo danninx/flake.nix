@@ -2,13 +2,13 @@
 stop=(
 	"dunst" 
 	"swww-daemon" 
-#	"waybar"
+	"quickshell"
 )
 
 start=(
 	"dunst"
 	"swww-daemon"
-#	"waybar"
+	"quickshell"
 )
 
 for item in ${stop[@]}; do

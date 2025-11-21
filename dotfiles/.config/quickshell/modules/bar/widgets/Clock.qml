@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import "../common"
+import qs.common
 
 Text {
     property color textColor
@@ -8,7 +8,7 @@ Text {
 
     text: "%1\n%2".arg(Time.hour).arg(Time.minute)
     color: this.textColor ? this.textColor : "white"
-    font.family: "JetBrains Mono NL"
+    font.family: "JetBrains Mono"
     font.pixelSize: 16
 
     // ToolTip.visible: mouseArea.containsMouse

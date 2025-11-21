@@ -1,6 +1,8 @@
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
+
+import qs.themes
 import "widgets"
 
 Scope {
