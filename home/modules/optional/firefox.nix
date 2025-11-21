@@ -89,13 +89,6 @@ in
           "browser.newtabpage.activity-stream.system.showSponsored" = lock false;
           "browser.topsites.contile.enabled" = lock false;
         };
-
-        WebsiteFilter = {
-          Block = [
-            "*://gemini.google.com/*"
-            "*://claude.ai/*"
-          ];
-        };
       };
 
       profiles = {

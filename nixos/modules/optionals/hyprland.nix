@@ -34,6 +34,7 @@ in
             libnotify
             networkmanagerapplet
             pwvucontrol
+            quickshell
             rose-pine-cursor
             socat
             swappy

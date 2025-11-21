@@ -37,6 +37,7 @@ in
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   programs.starship.enable = true;
   programs.tim.enable = true;
@@ -57,6 +58,9 @@ in
 
   users.mutableUsers = false;
   users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
+  users.users.danninx.packages = with pkgs; [
+    prismlauncher
+  ];
 
   system.stateVersion = "25.05";
 }

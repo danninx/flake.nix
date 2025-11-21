@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    code-cursor
+    anki
     git
     gnumake
     wezterm

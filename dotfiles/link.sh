@@ -6,6 +6,7 @@ list=( \
     ".config/waybar" \
     ".config/starship.toml" \
     ".wezterm.lua" \
+    ".config/quickshell" \
 )
 
 for item in ${list[@]}; do

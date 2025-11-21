@@ -24,7 +24,7 @@ case $next in
 		wp=~/dnix/backgrounds/knight-1.jpg
 		;;
 	3)
-		wp=~/dnix/backgrounds/p5-solid.jpg
+		wp=~/dnix/backgrounds/kyriemocha.png
 		;;
 	4)
 		wp=~/dnix/backgrounds/nix-mocha.png

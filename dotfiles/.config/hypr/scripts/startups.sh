@@ -2,13 +2,13 @@
 stop=(
 	"dunst" 
 	"swww-daemon" 
-	"waybar"
+#	"waybar"
 )
 
 start=(
 	"dunst"
 	"swww-daemon"
-	"waybar"
+#	"waybar"
 )
 
 for item in ${stop[@]}; do
