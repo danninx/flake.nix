@@ -1,13 +1,13 @@
 # kill existing
 stop=(
 	"dunst" 
-	"swww-daemon" 
+	"hyprpaper"
 	"quickshell"
 )
 
 start=(
 	"dunst"
-	"swww-daemon"
+	"hyprpaper"
 	"quickshell"
 )
 

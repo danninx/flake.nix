@@ -37,7 +37,7 @@ Scope {
                 bottom: true
             }
 
-            implicitWidth: 50
+            implicitWidth: 40
 
             margins {
                 top: 10
@@ -48,7 +48,7 @@ Scope {
             Rectangle {
                 id: bar
                 anchors.fill: parent
-                anchors.rightMargin: 10
+                anchors.rightMargin: 0
                 radius: 10
                 color: Theme.withAlpha(Theme.colors.base, 0.75)
 

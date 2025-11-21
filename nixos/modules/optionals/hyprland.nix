@@ -28,6 +28,7 @@ in
             dunst
             hypridle
             hyprlock
+            hyprpaper
             hyprpicker
             hyprshot
             jq
@@ -37,7 +38,6 @@ in
             rose-pine-cursor
             socat
             swappy
-            swww 
             waybar
             wl-clipboard
           ] ++ [ inputs.quickshell.packages.x86_64-linux.default ];

@@ -1,7 +1,6 @@
 DOTS=/home/danninx/dnix/dotfiles
 list=( \
     ".config/dunst" \
-    ".config/eww" \
     ".config/hypr" \
     ".config/waybar" \
     ".config/starship.toml" \
