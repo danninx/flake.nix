@@ -37,6 +37,7 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+      "/var/lib/tailscale"
       "/etc/NetworkManager/system-connections"
       "/etc/nixos"
       "/etc/ssh"

@@ -1,56 +1,39 @@
+let
+  follows = url: { # it's a pain and honestly kinda gross to write this over and over
+    url = url;
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+in
+
 {
-  description = "Danninx configuration files";
+  description = "danninx/flake.nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url       = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager      = follows "github:nix-community/home-manager";
+    stylix            = follows "github:danth/stylix";
 
-    impermanence.url = "github:nix-community/impermanence";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    tim.url = "github:danninx/tim"; # :)
+    impermanence.url  = "github:nix-community/impermanence";
+    nixvim.url        = "github:nix-community/nixvim";
   };
 
-  outputs = { 
-    self, 
-    impermanence,
-    quickshell,
-    ... 
-  } @ inputs:
-
+  outputs = { self, impermanence, ... } @ inputs:
   let
     inherit (self) outputs;
-    utils = import ./utils { inherit inputs outputs; };
+    utils = import ./utils/systems.nix { inherit inputs outputs; };
   in
   {
     nixosConfigurations = {
-      "tsukuyomi" = utils.mkDefaultSystem "tsukuyomi";
-      
       "takarabune" = utils.mkSystem "takarabune" {
         system = "x86_64-linux";
         extraModules = [
           impermanence.nixosModules.impermanence
         ];
+      };
+
+      "tsukuyomi" = utils.mkSystem "tsukuyomi" {
+        system = "x86_64-linux";
       };
     };
   };

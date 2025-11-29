@@ -57,7 +57,15 @@ Scope {
                     inactiveColor: Theme.colors.surface0
                 } 
 
+				Battery {
+					anchors.bottom: systemTray.top
+					anchors.bottomMargin: 10
+					anchors.horizontalCenter: parent.horizontalCenter
+                    textColor: Theme.colors.subtext0
+				}
+
                 Tray {
+					id: systemTray
                     backgroundColor: Theme.colors.surface0
                     anchors.bottom: clockWidget.top
                     anchors.horizontalCenter: parent.horizontalCenter
