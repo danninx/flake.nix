@@ -39,7 +39,7 @@
           "$window SHIFT, D, movetoworkspace, special:discord"
         ];
 
-        winrowrule = [ "workspace special:discord, class:discord" ];
+        windowrule = [ "workspace special:discord, class:discord" ];
       }
       {
         # reading

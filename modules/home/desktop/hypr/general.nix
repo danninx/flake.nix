@@ -63,7 +63,7 @@
       };
 
       dwindle = {
-        psuedotile = true;
+        pseudotile = true;
         preserve_split = true;
       };
 
@@ -86,9 +86,9 @@
         };
       };
 
-      gestures = {
-        workspace_swipe = true;
-      };
+      gesture = [
+        "3, horizontal, workspace"
+      ];
 
       ecosystem = {
         no_update_news = true;

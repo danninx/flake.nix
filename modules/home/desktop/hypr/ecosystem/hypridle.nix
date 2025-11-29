@@ -2,15 +2,17 @@
 
 {
   config = (lib.mkIf config.modules.hyprland.preset.enable {
-    services.hypridle.settings = {
-      general = {
-        lock_cmd = "hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
+    services.hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+        };
 
-      listener = [
-        {
+        listener = [
+          {
           # 2 minutes
           timeout = 240;
           on-timeout = "ddcutil setvcp 10 10";
@@ -30,5 +32,6 @@
         }
       ];
     };
-  });
+  };
+});
 }

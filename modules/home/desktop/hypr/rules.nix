@@ -8,7 +8,7 @@
         "float, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
         "move 100%-660 20, title:^(Picture-in-Picture)$"
-        "size 640 360 title:^(Picture-in-Picture)$"
+        "size 640 360, title:^(Picture-in-Picture)$"
 
         # Network Manager Applet
         "float, class:^(nm-connection-editor)$"

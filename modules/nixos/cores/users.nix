@@ -8,6 +8,7 @@
     packages = with pkgs; [
       discord
       fuzzel
+      gnumake
       nix-prefetch-git
       obsidian
       openvpn
