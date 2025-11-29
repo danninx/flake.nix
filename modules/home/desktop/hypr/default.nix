@@ -20,6 +20,7 @@
       settings = {
         "$terminal" = "wezterm";
         "$fileManager" = "dolphin";
+        "$menu" = "fuzzel";
 
         monitor = [
           ",preferred,auto,auto"

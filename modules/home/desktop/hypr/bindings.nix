@@ -14,6 +14,7 @@
         "$window, L, exec, hyprlock"
         "$window SHIFT, S, exec, hyprshot --freeze --clipboard-only --mode region; sleep 0.5s && wl-paste | swappy -f -"
         "$window SHIFT, P, exec, hyprshot --freeze --mode output -m HDMI-A-1 -t 1000"
+        "$window, A, exec, $menu"
         "SUPER, F, fullscreen"
 
         # Switch workspaces with mainMod + [0-6]
