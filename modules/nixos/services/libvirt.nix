@@ -1,7 +1,11 @@
-{ mkEnableable, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-mkEnableable "install libvirt, virt-manager, and associated packages" {
-  libvirt-manager = {
+{
+  options = {
+    modules.libvirt.enable = lib.mkEnableOption "installation of libvirt and virt-manager";
+  };
+
+  config = (lib.mkIf config.modules.libvirt.enable {
     programs.virt-manager.enable = true;
     programs.dconf.enable = true;
     # Note: make sure to run "virsh net-autostart default" for proper networking
@@ -39,5 +43,5 @@ mkEnableable "install libvirt, virt-manager, and associated packages" {
       spice-protocol
       win-spice
     ];
-  };
+  });
 }

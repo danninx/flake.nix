@@ -1,55 +1,69 @@
-{ inputs, mkEnableable, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
-mkEnableable "installation of hyprland and associated tools/packages" {
-  hyprland = {
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-
-    environment = {
-      sessionVariables = {
-        AQ_DRM_DEVICES = "/dev/dri/card1";
-        NIXOS_OZONE_WL = "1";
+let
+  cfg = config.modules.hyprland;
+in
+  {
+    options = {
+      modules.hyprland.enable = lib.mkEnableOption "installation of hyprland desktop tools";
+      modules.hyprland.defaultSession = lib.mkEnableOption "hyprland as the default DM session";
+      modules.hyprland.user = lib.mkOption {
+        type = lib.types.string;
+        default = "danninx";
+        description = "user for defaultSession";
       };
-
-      systemPackages = with pkgs; [
-        ddcutil
-        dunst
-        hypridle
-        hyprlock
-        hyprpaper
-        hyprpicker
-        hyprshot
-        jq
-        libnotify
-        networkmanagerapplet
-        pwvucontrol
-        rose-pine-cursor
-        socat
-        swappy
-        waybar
-        wl-clipboard
-      ] ++ [ inputs.quickshell.packages.x86_64-linux.default ];
     };
 
-    programs.hyprlock.enable = true;
-    services.hypridle.enable = true;
-    security.pam.services.hyprlock = { };
+    config = lib.mkMerge [
+      (lib.mkIf cfg.enable {
+        programs.hyprland = {
+          enable = true;
+          xwayland.enable = true;
+        };
 
-    xdg.portal.enable = true;
-    xdg.portal.extraPortals =  with pkgs; [ 
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-  };
+        environment = {
+          sessionVariables = {
+            AQ_DRM_DEVICES = "/dev/dri/card1";
+            NIXOS_OZONE_WL = "1";
+          };
 
-  services.displayManager = {
-    autoLogin = {
-      enable = true;
-      user = "danninx";
-    };
+          systemPackages = with pkgs; [
+            dunst
+            hypridle
+            hyprlock
+            hyprpaper
+            hyprshot
+            jq
+            libnotify
+            networkmanagerapplet
+            pwvucontrol
+            rose-pine-cursor
+            swappy
+            waybar
+            wl-clipboard
+          ];
+        };
 
-    defaultSession = "hyprland";
-  };
-}
+        programs.hyprlock.enable = true;
+        services.hypridle.enable = true;
+        security.pam.services.hyprlock = { };
+
+        xdg.portal.enable = true;
+        xdg.portal.extraPortals =  with pkgs; [ 
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-hyprland
+        ];
+      })
+
+      (lib.mkIf cfg.defaultSession {
+        services.displayManager = {
+          autoLogin = {
+            enable = true;
+            user = cfg.user;
+          };
+
+          defaultSession = "hyprland";
+        };
+      })
+    ]
+  }

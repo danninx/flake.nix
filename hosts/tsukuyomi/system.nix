@@ -13,11 +13,15 @@
 
   environment.sessionVariables.EDITOR = "nvim";
 
-  dots = {
-    docker.enable           = true;
-    hyprland.enable         = true;
-    latex.enable            = true;
-    nixvim.enable           = true;
+  modules = {
+    docker.enable = true;
+    hyprland = {
+      enable = true;
+      defaultSession = true;
+      user = "danninx";
+    };
+    latex.enable = true;
+    nixvim.enable = true;
   };
 
 

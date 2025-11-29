@@ -10,9 +10,6 @@
 
       overrides = [ (import ../overrides) ];
 
-      mkEnableable = import./mkEnableable.nix { inherit inputs.nixpkgs.lib; };
-      mkEnableConfigs = import./mkEnableConfigs.nix { inherit inputs.nixpkgs.lib; };
-
       defaultConfig = {
           home-manager.backupFileExtension = "home.bak";
           home-manager.extraSpecialArgs = { inherit inputs outputs system; };
@@ -30,18 +27,18 @@
             dates = "weekly";
             options = "--delete-older-than 14d";
             randomizedDelaySec = "45min";
-          }
+          };
           nix.settings.optimise = {
             automatic = true;
             dates = [ "03:45" ];
-          }
+          };
 
           programs.nix-ld.enable = true;
-      }
+      };
   in
 
   with inputs.nixpkgs.lib; nixosSystem {
-      specialArgs = { inherit inputs outputs mkEnableable mkEnableConfigs; };
+      specialArgs = { inherit inputs outputs; };
       system = "x86_64-linux";
       modules = [
         systemconfig

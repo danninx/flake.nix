@@ -8,9 +8,13 @@
   networking.hostName = "takarabune";
   system.stateVersion = "25.05";
 
-  dots = { 
+  modules = { 
     docker.enable           = true;
-    hyprland.enable         = true;
+    hyprland = {
+      enable = true;
+      defaultSession = true;
+      user = "danninx";
+    };
     keybase.enable          = true;
     latex.enable            = true;
     nixvim.enable           = true;

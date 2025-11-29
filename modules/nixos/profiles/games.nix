@@ -2,10 +2,10 @@
 
 {
   options = {
-    dots.games.enable = lib.mkEnableOption "installation of game tools";
+    modules.games.enable = lib.mkEnableOption "installation of game tools";
   };
 
-  config = (lib.mkIf config.dots.games.enable {
+  config = (lib.mkIf config.modules.games.enable {
     programs = {
       gamemode.enable = true;
       steam = {

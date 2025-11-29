@@ -1,7 +1,11 @@
-{ mkEnableable, ... }:
+{ config, lib, ... }:
 
-mkEnableable "docker" {
-  docker = {
+{
+  options = {
+    modules.docker.enable = lib.mkEnableOption "docker backend";
+  };
+
+  config = (lib.mkIf config.modules.docker.enable {
     users.extraGroups.docker.members = [ "danninx" ];
     virtualisation = {
       docker = {
@@ -11,6 +15,6 @@ mkEnableable "docker" {
         backend = "docker";
       };
     };
-  };
+  });
 }
 

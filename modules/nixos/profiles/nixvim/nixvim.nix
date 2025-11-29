@@ -2,10 +2,10 @@
 
 {
   options = {
-    dots.nixvim.enable = lib.mkEnableOption "nixvim configurations";
+    modules.nixvim.enable = lib.mkEnableOption "nixvim configurations";
   };
 
-  config = (lib.mkIf config.dots.nixvim.enable {
+  config = (lib.mkIf config.modules.nixvim.enable {
     nixvim = {
       programs.nixvim = {
         enable = true;
