@@ -1,6 +1,6 @@
 {
   imports = [
-    ./dunst.nix
-    ./waybar.nix
+    ./dunst
+    ./waybar
   ];
 }

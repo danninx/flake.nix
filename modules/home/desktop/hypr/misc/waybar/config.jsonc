@@ -17,14 +17,6 @@
 		"clock"
 	],
 
-	"custom/nmconnection": {
-		"exec": "$HOME/.config/waybar/scripts/nmconnection.sh",
-		"format": "<span>{}</span>",
-		"justify": "center",
-		"interval": 5,
-		"on-click": "nm-connection-editor"
-	},
-
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"on-click": "activate",

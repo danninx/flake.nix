@@ -8,6 +8,7 @@
     ./workspaces.nix
 
     ./ecosystem
+    ./misc
   ];
 
   options = {

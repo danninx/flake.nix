@@ -47,10 +47,6 @@ tooltip label {
 	color: @mauve;
 }
 
-#custom-nmconnection {
-	margin-bottom: 15px;
-}
-
 #pulseaudio {
 	margin-bottom: 17px;
 }
