@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -20,7 +20,6 @@
       defaultSession = true;
       user = "danninx";
     };
-    latex.enable = true;
     nixvim.enable = true;
   };
 

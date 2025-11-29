@@ -21,6 +21,10 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  modules = {
+    hyprland.preset.enable = true;
+  };
+
   programs.home-manager.enable = true;
 }
 

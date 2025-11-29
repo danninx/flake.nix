@@ -3,10 +3,11 @@
 {
   imports = [
     ./bindings.nix
-    ./ecosystem.nix
     ./general.nix
-    ./rule.nix
+    ./rules.nix
     ./workspaces.nix
+
+    ./ecosystem
   ];
 
   options = {

@@ -1,21 +1,17 @@
-let
-  follows = url: { # it's a pain and honestly kinda gross to write this over and over
-    url = url;
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-in
-
 {
   description = "danninx/flake.nix";
 
   inputs = {
-    nixpkgs.url       = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager      = follows "github:nix-community/home-manager";
-    stylix            = follows "github:danth/stylix";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    impermanence.url  = "github:nix-community/impermanence";
-    nixvim.url        = "github:nix-community/nixvim";
+    stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    impermanence.url = "github:nix-community/impermanence";
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = { self, impermanence, ... } @ inputs:

@@ -16,7 +16,6 @@
       user = "danninx";
     };
     keybase.enable          = true;
-    latex.enable            = true;
     nixvim.enable           = true;
   };
 

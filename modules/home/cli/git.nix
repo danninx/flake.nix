@@ -3,13 +3,15 @@
 {
   programs.git = {
     enable = true;
-    userName = "danninx";
-    userEmail = "public.danninx@gmail.com";
     lfs.enable = true;
 
-    extraConfig = {
-      core = {
-        editor = "nvim";
+    settings = {
+      user.name = "danninx";
+      user.email = "public.danninx@gmail.com";
+      extraConfig = {
+        core = {
+          editor = "nvim";
+        };
       };
     };
   };

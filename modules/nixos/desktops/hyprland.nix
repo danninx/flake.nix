@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.modules.hyprland;
@@ -8,7 +8,7 @@ in
       modules.hyprland.enable = lib.mkEnableOption "installation of hyprland desktop tools";
       modules.hyprland.defaultSession = lib.mkEnableOption "hyprland as the default DM session";
       modules.hyprland.user = lib.mkOption {
-        type = lib.types.string;
+        type = lib.types.str;
         default = "danninx";
         description = "user for defaultSession";
       };
@@ -65,5 +65,5 @@ in
           defaultSession = "hyprland";
         };
       })
-    ]
+    ];
   }

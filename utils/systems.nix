@@ -22,13 +22,13 @@
           nixpkgs.config.overlays = overrides;
 
           nix.settings.experimental-features = [ "nix-command" "flakes" ];
-          nix.settings.gc = {
+          nix.gc = {
             automatic = true;
             dates = "weekly";
             options = "--delete-older-than 14d";
             randomizedDelaySec = "45min";
           };
-          nix.settings.optimise = {
+          nix.optimise = {
             automatic = true;
             dates = [ "03:45" ];
           };

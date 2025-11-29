@@ -1,10 +1,10 @@
 {
   imports = [
     ./boot.nix
-    ./fonts.nix
     ./locale.nix
     ./network.nix
-    ./security.nix
+    ./pipewire.nix
+    ./sddm.nix
     ./users.nix
   ];
 }

@@ -9,13 +9,13 @@ let
   
   unenforced = url: {
     install_url = url;
-    installtion_mode = "normal_installed";
+    installation_mode = "normal_installed";
     private_browsing = false;
   };
 
   private = ext: {
     install_url = ext.install_url;
-    installtion_mode = ext.installtion_mode;
+    installation_mode = ext.installation_mode;
     private_browsing = true;
   };
 
@@ -52,10 +52,10 @@ in
           Fingerprinting = true;
         };
         ExtensionSettings = {
-          "uBlock0@raymondhill.net" = private enforced "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"; # uBlock Origin
-          "jid1-MnnxcxisBPnSXQ@jetpack" = private enforced "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"; # Privacy Badger
-          "78272b6fa58f4a1abaac99321d503a20@proton.me" = private enforced "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi"; # Proton Pass
-          "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}" = private unenforced "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-mauve-git/latest.xpi"; # Catppuccin Mocha
+          "uBlock0@raymondhill.net" = private (enforced "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"); # uBlock Origin
+          "jid1-MnnxcxisBPnSXQ@jetpack" = private (enforced "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"); # Privacy Badger
+          "78272b6fa58f4a1abaac99321d503a20@proton.me" = private (enforced "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi"); # Proton Pass
+          "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}" = private (unenforced "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-mauve-git/latest.xpi"); # Catppuccin Mocha
         };
 
         OverrideFirstRunPage = "";
@@ -130,7 +130,7 @@ in
                 definedAliases = [ "@no" ];
               };
 
-              "Reddit" = {
+              "reddit" = {
                 urls = [
                   {
                     template = "https://www.reddit.com/search/?q=%s";
