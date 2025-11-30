@@ -32,6 +32,9 @@
         "$window SHIFT, 4, movetoworkspace, 4"
         "$window SHIFT, 5, movetoworkspace, 5"
         "$window SHIFT, 6, movetoworkspace, 6"
+
+        # shell
+        "$window, b, global, danni-shell:toggle-bar"
       ];
 
       # BIND FLAGS - see https://wiki.hypr.land/Configuring/Binds/#bind-flags

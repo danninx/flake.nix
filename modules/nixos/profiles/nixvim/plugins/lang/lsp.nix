@@ -49,6 +49,8 @@
 
         nixd.enable = true;
         nixd.autostart = true;
+
+        qmlls.enable = true;
       };
     };
   };
