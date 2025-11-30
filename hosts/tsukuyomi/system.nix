@@ -15,6 +15,7 @@
 
   modules = {
     docker.enable = true;
+    games.enable = true;
     hyprland = {
       enable = true;
       defaultSession = true;

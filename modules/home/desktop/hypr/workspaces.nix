@@ -1,16 +1,25 @@
 { config, lib, ... }:
 
+let
+  cfg = config.modules.hyprland;
+  onDefault = config: (
+    if cfg.defaultMonitor == null
+    then config
+    else config + ", monitor:" + cfg.defaultMonitor
+  );
+in
 {
-  config = (lib.mkIf config.modules.hyprland.preset.enable {
+  config = (lib.mkIf cfg.preset.enable {
     wayland.windowManager.hyprland.settings = lib.mkMerge [
       {
         workspace = [
-          "1, persistent:true, default:true"
-          "2, persistent:true"
-          "3, persistent:true"
-          "4, persistent:true"
-          "5, persistent:true"
-          "6, persistent:true"
+          (onDefault "1, persistent:true, default:true")
+          (onDefault "2, persistent:true")
+          (onDefault "3, persistent:true")
+          (onDefault "4, persistent:true")
+          (onDefault "5, persistent:true")
+          (onDefault "6, persistent:true")
+          (onDefault "6, persistent:true")
         ];
 
         windowrule = [ "workspace 1, class:firefox" ];

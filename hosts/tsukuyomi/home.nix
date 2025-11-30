@@ -22,7 +22,22 @@
   ];
 
   modules = {
-    hyprland.preset.enable = true;
+    hyprland = {
+      preset.enable = true;
+      monitors = [
+        {
+          port = "DP-1";
+          config = "2560x1440@144.00, 0x0, 1";
+          wallpaper = "$HOME/dnix/assets/images/kyriemocha.png";
+        }
+        {
+          port = "HDMI-A-1";
+          config = "1920x1080@60.00, -1080x-240, 1, transform, 1";
+          wallpaper = null;
+        }
+      ];
+      defaultMonitor = "DP-1";
+    };
   };
 
   programs.home-manager.enable = true;

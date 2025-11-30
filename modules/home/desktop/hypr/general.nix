@@ -4,10 +4,10 @@
   config = (lib.mkIf config.modules.hyprland.preset.enable {
     wayland.windowManager.hyprland.settings = {
       general = {
-        gaps_in = 2;
-        gaps_out = 10;
+        gaps_in = 0;
+        gaps_out = 0;
 
-        border_size = 1;
+        border_size = 0;
 
         "col.active_border" = "rgba(b4befe0f) rgba(eba0ac0f) 45deg";
         "col.inactive_border" = "rgba(1818250a)";
@@ -20,7 +20,7 @@
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
 
         active_opacity = 1.0;
         inactive_opacity = 0.9;
