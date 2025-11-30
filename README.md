@@ -1,7 +1,7 @@
 # flake.nix
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 
-| <p align="center"> [Wallpaper](https://github.com/NixOS/nixos-artwork/blob/master/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png) |
+| <p align="center"> [Original Wallpaper](https://wallhaven.cc/w/13jqrw), modified by [gowall](https://github.com/Achno/gowall) |
 | - |
 | ![Lock screen](./_readme/lock.png) 
 | ![Fetch screenshot](./_readme/fetch.png) 
