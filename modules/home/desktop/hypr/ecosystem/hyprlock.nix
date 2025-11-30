@@ -61,7 +61,7 @@
 
         background = {
           monitor = "";
-          path = "$HOME/dnix/backgrounds/kyriemocha.png";
+          path = "$HOME/dnix/assets/images/kyriemocha.png";
           blur_passes = 0;
           color = "$base";
         };
