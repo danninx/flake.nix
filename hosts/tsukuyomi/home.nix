@@ -1,16 +1,9 @@
+
 { pkgs, ... }:
 
-let
-  alwaysOn = ../../home/modules/always;
-in
 {
   imports = [
-    alwaysOn
-    ../../home/modules/optional/fuzzel.nix
-    ../../home/modules/optional/firefox.nix
-    ../../home/modules/optional/stylix.nix
-    ../../home/modules/optional/vscode.nix
-    ../../home/modules/optional/yazi.nix
+    ../../modules/home
   ];
 
   home.username = "danninx";
@@ -22,8 +15,16 @@ in
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    nerd-fonts.atkynson-mono
     nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
   ];
+
+  modules = {
+    hyprland.preset.enable = true;
+  };
 
   programs.home-manager.enable = true;
 }
+

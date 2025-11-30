@@ -1,66 +1,61 @@
-{ lib, pkgs, ... }:
-
-let
-  core = ../../nixos/core;
-  host-modules = ./modules;
-  modules = ../../nixos/modules;
-  packages = ./packages.nix;
-in
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
-    core
-    host-modules
-    modules
-    packages
+    ../../modules/nixos
   ];
 
   networking.hostName = "tsukuyomi";
+  system.stateVersion = "25.05";
 
-  boot.initrd.supportedFilesystems = [ "btrfs" ];
-  boot.loader.efi.efiSysMountPoint = lib.mkForce "/boot/efi";
-
-  dnix = { 
-    docker.enable           = true;
-    hyprland.enable         = true;
-    keybase.enable          = true;
-    latex.enable            = false;
-    plasma6.enable          = false;
-    podman.enable           = false;
-    tmux.enable             = false;
-    vim.enable              = true;
-    vms.enable              = false;
-    yubikey-software.enable = false;
-  };
-
-  services.openssh.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
-  programs.starship.enable = true;
-  programs.tim.enable = true;
+  users.mutableUsers = false;
+  users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
 
   environment.sessionVariables.EDITOR = "nvim";
-  services.displayManager = {
-    autoLogin = {
+
+  modules = {
+    docker.enable = true;
+    hyprland = {
       enable = true;
+      defaultSession = true;
       user = "danninx";
     };
-
-    defaultSession = "hyprland";
+    nixvim.enable = true;
   };
+
+
+  # UPS tools?
+  services.apcupsd.enable = true;
 
   # i2c/ddc for monitor brightness management
   hardware.i2c.enable = true;
   environment.systemPackages = [ pkgs.kdePackages.dolphin ];
 
-  users.mutableUsers = false;
-  users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
-  users.users.danninx.packages = with pkgs; [
-    prismlauncher
-  ];
+  # boot stuff
+  boot.initrd.supportedFilesystems = [ "btrfs" ];
+  boot.loader.efi.efiSysMountPoint = lib.mkForce "/boot/efi";
 
-  system.stateVersion = "25.05";
+  # Nvidia Configuration
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics.enable = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = false;
+    };
+
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  environment.variables = {
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+    NIXOS_OZONE_WL = "1";
+  };
 }

@@ -1,0 +1,69 @@
+{
+	"layer": "top",
+	"position": "left",
+	"width": 28,
+	"margin": "5 0 5 5",
+	"spacing": 2,
+
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"tray"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"battery",
+		"clock"
+	],
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"format-icons": {
+			"active": "",
+			"urgent": "",
+			"default": ""
+		}
+	},
+
+	"battery": {
+		"interval": 5,
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}%",
+		"max-length": 25
+	},
+
+	"clock": {
+		"tooltip": true,
+		"format": "{:%H\n%M}",
+		"tooltip-format": "{:%Y-%m-%d}"
+	},
+
+	"pulseaudio": {
+        "max-volume": 150,
+        "scroll-step": 10,
+        "format": " {icon}",
+        "tooltip-format": "{volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": [
+                " ",
+                "  ",
+                "  "
+            ]
+        },
+        "on-click": "pwvucontrol"
+    },
+
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10
+	}
+}
