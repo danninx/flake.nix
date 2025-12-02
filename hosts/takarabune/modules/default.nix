@@ -1,6 +1,6 @@
 {
   imports = [
-    ./nvidia.nix 
+    ./nvidia.nix
     ./persist.nix
   ];
 }

@@ -16,18 +16,21 @@
           enable = true;
           extraEntriesBeforeNixOS = false;
           extraEntries = ''
-             menuentry "Reboot" {
-             reboot
-             }
-             menuentry "Poweroff" {
-             halt
-             }
+            menuentry "Reboot" {
+            reboot
+            }
+            menuentry "Poweroff" {
+            halt
+            }
           '';
           useOSProber = true;
         };
       };
 
-      kernelParams = [ "quiet" "splash" ];
+      kernelParams = [
+        "quiet"
+        "splash"
+      ];
       initrd.verbose = false;
     };
   };

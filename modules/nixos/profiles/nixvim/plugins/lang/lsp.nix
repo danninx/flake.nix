@@ -9,7 +9,7 @@
       servers = {
         pyright.enable = true;
         jdtls.enable = true;
-        
+
         ccls = {
           enable = true;
           autostart = true;
@@ -22,7 +22,13 @@
           enable = true;
           settings = {
             completeUnimported = true;
-            directoryFilters = [ "-.git" "-.vscode" "-.idea" "-.vscode-test" "-node_modules" ];
+            directoryFilters = [
+              "-.git"
+              "-.vscode"
+              "-.idea"
+              "-.vscode-test"
+              "-node_modules"
+            ];
             hints = {
               assignVariableTypes = true;
               compositeLiteralFields = true;

@@ -6,7 +6,7 @@
     enableZshIntegration = true;
     extraConfig = ''
       local wezterm = require 'wezterm'
-      
+
       local mocha = {
       	rosewater = 'rgb(245, 224, 220)',
       	flamingo = 'rgb(242, 205, 205)',
@@ -35,7 +35,7 @@
       	mantle = 'rgb(24, 24, 37)',
       	crust = 'rgb(17, 17, 27)',
       }
-      
+
       local config = wezterm.config_builder()
       config.unix_domains = {
       	{
@@ -43,19 +43,19 @@
       	},
       }
       -- config.default_domain = 'unix'
-      
+
       --[
       --	BINDS
       --]
       config.keys = {}
       config.leader = { key = 'a', mods = 'ALT', timeout_milliseconds = 1000 }
-      
+
       local function bind(settings) 
       	for _,bind in pairs(settings) do
       		table.insert(config.keys, bind)
       	end
       end
-      
+
       --[
       --	COLORS
       --]
@@ -65,7 +65,7 @@
       config.use_fancy_tab_bar = false
       config.font_size = 12
       config.warn_about_missing_glyphs = false
-      
+
       config.font = wezterm.font_with_fallback {
         {
           family = 'JetBrains Mono',
@@ -76,45 +76,45 @@
         { family = 'Terminus', weight = 'Bold' },
         'Noto Color Emoji',
       }
-      
+
       config.colors = {
       	background = mocha.base,
-      
+
       	tab_bar = {
       		background = mocha.base,
-      
+
       		active_tab = {
       			bg_color = mocha.base,
       			fg_color = mocha.mauve,
       		},
-      
+
       		inactive_tab = {
       			bg_color = mocha.base,
       			fg_color = mocha.overlay0,
       		},
-      
+
       		inactive_tab_hover = {
       			bg_color = mocha.base,
       			fg_color = mocha.green;
       		},
-      
+
       		new_tab = {
       			bg_color = mocha.base,
       			fg_color = mocha.text,
       		},
-      
+
       		new_tab_hover = {
       			bg_color = mocha.base,
       			fg_color = mocha.green;
       		},
       	},
       }
-      
+
       --[
       --	WORKSPACES
       --]
       local act = wezterm.action
-      
+
       wezterm.on("update-right-status", function(window, pane)
       	local tabs = window:mux_window():tabs()
       	local name = window:active_workspace()
@@ -122,7 +122,7 @@
       		{ Text = "[" .. #tabs .. "] " .. name .. " " } --"[" .. numTabs .. "] " .. window:active_workspace() }
       	})
       end)
-      
+
       bind({
       	-- [s]witch workspace
       	{ 
@@ -208,9 +208,9 @@
       	{ key = 'LeftArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Left', },
       	{ key = 'RightArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Right', },
       	{ key = 'w', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true}, },
-      
+
       })
-      
+
       return config
     '';
   };

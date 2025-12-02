@@ -3,13 +3,13 @@
 {
   boot.initrd = {
     enable = true;
-    supportedFilesystems = ["btrfs"];
+    supportedFilesystems = [ "btrfs" ];
 
     postResumeCommands = lib.mkAfter ''
       mkdir -p /mnt
       # mount root subvolume
       mount -o subvol=/ /dev/mapper/enc /mnt
-  
+
       # clear root subvolumes and rollback
       btrfs subvolume list -o /mnt/root |
       cut -f9 -d' ' |
@@ -46,6 +46,6 @@
     ];
   };
 
-  users.mutableUsers = false; 
+  users.mutableUsers = false;
   users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
 }

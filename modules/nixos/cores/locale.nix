@@ -16,10 +16,10 @@
   };
 
   services.xserver.xkb = {
-     layout = "us";
-     variant = "";
+    layout = "us";
+    variant = "";
   };
-  
+
   services.printing.enable = true;
   services.printing.browsed.enable = false;
 

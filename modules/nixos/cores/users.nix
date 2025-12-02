@@ -4,7 +4,12 @@
   users.users.danninx = {
     isNormalUser = true;
     description = "danninx";
-    extraGroups = [ "dialout" "networkmanager" "wheel" "wireshark" ];
+    extraGroups = [
+      "dialout"
+      "networkmanager"
+      "wheel"
+      "wireshark"
+    ];
     packages = with pkgs; [
       discord
       fuzzel

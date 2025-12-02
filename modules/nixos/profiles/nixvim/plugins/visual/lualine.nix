@@ -8,7 +8,7 @@
         alwaysDivideMiddle = true;
         globalstatus = true;
         ignoreFocus = [ "neo-tree" ];
-        extensions = [];
+        extensions = [ ];
         theme = "auto";
 
         section_separators = {
@@ -25,10 +25,16 @@
       sections = {
         lualine_a = [ "mode" ];
         lualine_b = [ "branch" ];
-        lualine_c = [ "filename" "diff" ];
+        lualine_c = [
+          "filename"
+          "diff"
+        ];
 
         lualine_x = [ "progress" ];
-        lualine_y = [ "encoding" "filetype" ];
+        lualine_y = [
+          "encoding"
+          "filetype"
+        ];
         lualine_z = [ "location" ];
       };
     };

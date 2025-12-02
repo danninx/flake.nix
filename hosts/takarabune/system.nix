@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -8,15 +13,15 @@
   networking.hostName = "takarabune";
   system.stateVersion = "25.05";
 
-  modules = { 
-    docker.enable           = true;
+  modules = {
+    docker.enable = true;
     hyprland = {
       enable = true;
       defaultSession = true;
       user = "danninx";
     };
-    keybase.enable          = true;
-    nixvim.enable           = true;
+    keybase.enable = true;
+    nixvim.enable = true;
   };
 
   services.thermald.enable = true;
@@ -76,7 +81,7 @@
   # persistence configuration
   boot.initrd = {
     enable = true;
-    supportedFilesystems = ["btrfs"];
+    supportedFilesystems = [ "btrfs" ];
 
     postResumeCommands = lib.mkAfter ''
       mkdir -p /mnt
@@ -119,7 +124,6 @@
     ];
   };
 
-  users.mutableUsers = false; 
+  users.mutableUsers = false;
   users.users.danninx.hashedPasswordFile = "/persist/passwords/danninx";
 }
-

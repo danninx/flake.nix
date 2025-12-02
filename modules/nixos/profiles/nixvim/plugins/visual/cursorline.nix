@@ -4,7 +4,7 @@
   programs.nixvim.plugins.cursorline = {
     enable = true;
 
-    settings = { 
+    settings = {
       cursorline = {
         enable = true;
         timeout = 250;
@@ -17,7 +17,7 @@
         hl = {
           underline = true;
         };
-      }; 
+      };
     };
   };
 }

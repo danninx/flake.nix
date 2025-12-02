@@ -3,29 +3,30 @@
 let
   cfg = config.modules.hyprland;
 in
-  {
-    imports = [
-      ./bindings.nix
-      ./general.nix
-      ./rules.nix
-      ./workspaces.nix
+{
+  imports = [
+    ./bindings.nix
+    ./general.nix
+    ./rules.nix
+    ./workspaces.nix
 
-      ./ecosystem
-      ./misc
-    ];
+    ./ecosystem
+    ./misc
+  ];
 
-    options = {
-      modules.hyprland = {
-        preset.enable = lib.mkEnableOption "hyprland pre-configuration";
+  options = {
+    modules.hyprland = {
+      preset.enable = lib.mkEnableOption "hyprland pre-configuration";
 
-        defaultMonitor = lib.mkOption {
-          type = lib.types.nullOr lib.types.str;
-          description = "Default monitor port/name.";
-          example = "DP-1";
-        };
+      defaultMonitor = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        description = "Default monitor port/name.";
+        example = "DP-1";
+      };
 
-        monitors = lib.mkOption {
-          type = lib.types.listOf ( lib.types.submodule {
+      monitors = lib.mkOption {
+        type = lib.types.listOf (
+          lib.types.submodule {
             options = {
               port = lib.mkOption {
                 type = lib.types.str;
@@ -46,38 +47,40 @@ in
                 example = "$HOME/backgrounds/image.png";
               };
             };
-          });
-        };
-
-        default = [];
-        description = "A list of monitor configurations for Hyprland.";
-        example = [
-          {
-            port = "DP-1";
-            config = "2560x1440@144.00, 0x0, 1";
-            wallpaper = "$HOME/dnix/assets/images/kyriemocha.png";
           }
-          {
-            port = "HDMI-A-1";
-            config = "1920x1080@60.00, -1080x240, 1, transform, 1";
-            wallpaper = null;
-          }
-        ];
+        );
       };
-    };
 
-    config = (lib.mkIf cfg.preset.enable {
-
-      assertions = 
-      let
-        ports = lib.lists.forEach cfg.monitors (m: m.port);
-      in
-      [
+      default = [ ];
+      description = "A list of monitor configurations for Hyprland.";
+      example = [
         {
-          assertion = lib.lists.elem cfg.defaultMonitor ports;
-          message = "default monitor must be a monitor in the configuration";
+          port = "DP-1";
+          config = "2560x1440@144.00, 0x0, 1";
+          wallpaper = "$HOME/dnix/assets/images/kyriemocha.png";
+        }
+        {
+          port = "HDMI-A-1";
+          config = "1920x1080@60.00, -1080x240, 1, transform, 1";
+          wallpaper = null;
         }
       ];
+    };
+  };
+
+  config = (
+    lib.mkIf cfg.preset.enable {
+
+      assertions =
+        let
+          ports = lib.lists.forEach cfg.monitors (m: m.port);
+        in
+        [
+          {
+            assertion = lib.lists.elem cfg.defaultMonitor ports;
+            message = "default monitor must be a monitor in the configuration";
+          }
+        ];
 
       wayland.windowManager.hyprland = {
         enable = true;
@@ -86,9 +89,7 @@ in
           "$fileManager" = "dolphin";
           "$menu" = "fuzzel";
 
-          monitor = lib.lists.forEach cfg.monitors (m:
-          m.port + ", " + m.config
-          );
+          monitor = lib.lists.forEach cfg.monitors (m: m.port + ", " + m.config);
 
           env = [
             "XCURSOR_SIZE,28"
@@ -105,8 +106,9 @@ in
             "blueman-applet"
             "waybar"
             "hyprctl setcursor BreezeX-RosePine-Linux 28"
-            ];
-            };
-            };
-            }); 
-            }
+          ];
+        };
+      };
+    }
+  );
+}

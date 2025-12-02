@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -23,7 +28,6 @@
     };
     nixvim.enable = true;
   };
-
 
   # UPS tools?
   services.apcupsd.enable = true;

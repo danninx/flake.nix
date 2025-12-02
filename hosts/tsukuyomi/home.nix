@@ -1,4 +1,3 @@
-
 { pkgs, ... }:
 
 {
@@ -19,6 +18,8 @@
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
     nerd-fonts.jetbrains-mono
+
+    protonmail-desktop
   ];
 
   modules = {
@@ -42,4 +43,3 @@
 
   programs.home-manager.enable = true;
 }
-
