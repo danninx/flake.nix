@@ -21,7 +21,12 @@
         home-manager.sharedModules = [ ];
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.danninx = import homeconfig;
+        home-manager.users.danninx = {
+          imports = [ 
+            inputs.hyprflake.homeManagerModules.default
+            (import homeconfig) 
+          ];
+        };
 
         nixpkgs.config.allowUnfree = true;
         nixpkgs.config.overlays = overrides;

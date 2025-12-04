@@ -23,23 +23,33 @@
   ];
 
   modules = {
-    hyprland = {
-      preset.enable = true;
-      monitors = [
-        {
-          port = "DP-1";
-          config = "2560x1440@144.00, 0x0, 1";
-          wallpaper = "$HOME/dnix/assets/images/kyriemocha.png";
-        }
-        {
-          port = "HDMI-A-1";
-          config = "1920x1080@60.00, -1080x-240, 1, transform, 1";
-          wallpaper = null;
-        }
-      ];
-      defaultMonitor = "DP-1";
+    hyprland.preset.enable = true;
+  };
+
+  programs.hyprflake = {
+    monitors = {
+      "DP-1" = {
+        primary = true;
+        resolution = { x = 2560; y = 1440; };
+        refresh = 144;
+        position = { x = 0; y = 0; };
+        wallpaper = ../../assets/images/kyriemocha.png;
+      };
+
+      "HDMI-A-1" = {
+        resolution = { x = 1920; y = 1080; };
+        position = { x = -1080; y = -240; };
+        transform = 1;
+      };
+    };
+
+    workspaces = {
+      "code".monitor = "HDMI-A-1";
+      "discord".monitor = "HDMI-A-1";
+      "reading".monitor = "HDMI-A-1";
     };
   };
 
   programs.home-manager.enable = true;
+  
 }

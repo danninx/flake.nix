@@ -199,6 +199,29 @@
         "type": "github"
       }
     },
+    "hyprflake": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764828359,
+        "narHash": "sha256-38rYVSe6xx2o0N9dUjoqx7IJv850BjhSr0V75CpRqjk=",
+        "owner": "danninx",
+        "repo": "hyprflake",
+        "rev": "2f7ca10059e78d6c83b8abec7d7a4fe2dbddf29b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danninx",
+        "repo": "hyprflake",
+        "type": "github"
+      }
+    },
     "impermanence": {
       "locked": {
         "lastModified": 1737831083,
@@ -355,6 +378,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hyprflake": "hyprflake",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

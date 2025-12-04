@@ -24,5 +24,17 @@
     hyprland.preset.enable = true;
   };
 
+  programs.hyprflake = {
+    monitors = {
+      "eDP-1" = {
+        primary = true;
+        resolution = { x = 1920; y = 1080; };
+        refresh = 60;
+        position = { x = 0; y = 0; };
+        wallpaper = ../../assets/images/kyriemocha.png;
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
 }

@@ -9,6 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprflake = {
+      url = "github:danninx/hyprflake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     impermanence.url = "github:nix-community/impermanence";
 
     nixvim = {

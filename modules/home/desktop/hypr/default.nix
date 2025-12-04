@@ -70,17 +70,41 @@ in
 
   config = (
     lib.mkIf cfg.preset.enable {
+      programs.hyprflake = {
+        enable = true;
+        defaultBackgroundColor = "rgb(242437)";
 
-      assertions =
-        let
-          ports = lib.lists.forEach cfg.monitors (m: m.port);
-        in
-        [
-          {
-            assertion = lib.lists.elem cfg.defaultMonitor ports;
-            message = "default monitor must be a monitor in the configuration";
-          }
-        ];
+        workspaces = {
+          "1" = { persistent = true; };
+          "2" = { persistent = true; };
+          "3" = { persistent = true; };
+          "4" = { persistent = true; };
+          "5" = { persistent = true; };
+          "6" = { persistent = true; };
+
+          "code" = { 
+            special = true; 
+            gapsIn = 0;
+            gapsOut = 0;
+            border = false;
+            rounding = false;
+            decorate = false;
+            shadow = false;
+          };
+
+          "discord" = { special = true; };
+          "steam" = { special = true; };
+          "reading" = { 
+            special = true; 
+            gapsIn = 0;
+            gapsOut = 0;
+            border = false;
+            rounding = false;
+            decorate = false;
+            shadow = false;
+          };
+        };
+      };
 
       wayland.windowManager.hyprland = {
         enable = true;
@@ -88,8 +112,6 @@ in
           "$terminal" = "wezterm";
           "$fileManager" = "dolphin";
           "$menu" = "fuzzel";
-
-          monitor = lib.lists.forEach cfg.monitors (m: m.port + ", " + m.config);
 
           env = [
             "XCURSOR_SIZE,28"
@@ -107,8 +129,32 @@ in
             "waybar"
             "hyprctl setcursor BreezeX-RosePine-Linux 28"
           ];
+
+
+          # monitor specific properties - move into hyprflake once implemented
+          bind = [
+            "$window, E, togglespecialworkspace, games"
+            "$window SHIFT, E, movetoworkspace, special:games"
+            "$window, R, togglespecialworkspace, reading"
+            "$window SHIFT, R, movetoworkspace, special:reading"
+            "$window, D, togglespecialworkspace, discord"
+            "$window SHIFT, D, movetoworkspace, special:discord"
+            "$window, C, togglespecialworkspace, code"
+            "$window SHIFT, C, movetoworkspace, special:code"
+          ];
+
+          windowrulev2 = [
+            "float, onworkspace:f[special:games]"
+            "tile, onworkspace:f[special:games], initialTitle:^(Steam)$"
+          ];
+
+          windowrule = [ 
+            "workspace special:games silent, class:steam"
+            "workspace special:discord, class:discord"
+            "workspace special:reading, class:Keybase" 
+          ];
         };
       };
     }
-  );
-}
+      );
+    }
