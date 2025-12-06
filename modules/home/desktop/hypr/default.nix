@@ -74,13 +74,35 @@ in
         enable = true;
         defaultBackgroundColor = "rgb(242437)";
 
-        workspaces = {
-          "1" = { persistent = true; };
-          "2" = { persistent = true; };
-          "3" = { persistent = true; };
-          "4" = { persistent = true; };
-          "5" = { persistent = true; };
-          "6" = { persistent = true; };
+        workspaces = let
+          numbered = num: {
+            persistent = true; 
+            open = {
+              mods = ["SUPER"];
+              key = num; 
+            };
+            moveWindow = {
+              mods = ["SUPER" "SHIFT"];
+              key = num; 
+            };
+          };
+
+          withSuper = key: {
+            mods = ["SUPER"];
+            key = key;
+          };
+
+          withSuperShift = key: {
+            mods = ["SUPER" "SHIFT"];
+            key = key;
+          };
+        in {
+          "1" = numbered "1";
+          "2" = numbered "2";
+          "3" = numbered "3";
+          "4" = numbered "4";
+          "5" = numbered "5";
+          "6" = numbered "6";
 
           "code" = { 
             special = true; 
@@ -90,10 +112,18 @@ in
             rounding = false;
             decorate = false;
             shadow = false;
+            open = withSuper "C";
+            moveWindow = withSuperShift "C";
           };
-
-          "discord" = { special = true; };
-          "steam" = { special = true; };
+          "discord" = { 
+            special = true; 
+            open = withSuper "D";
+            moveWindow = withSuperShift "D";
+          };
+          "games" = { special = true; 
+            open = withSuper "E";
+            moveWindow = withSuperShift "E";
+          };
           "reading" = { 
             special = true; 
             gapsIn = 0;
@@ -102,6 +132,8 @@ in
             rounding = false;
             decorate = false;
             shadow = false;
+            open = withSuper "R";
+            moveWindow = withSuperShift "R";
           };
         };
       };
@@ -130,19 +162,6 @@ in
             "hyprctl setcursor BreezeX-RosePine-Linux 28"
           ];
 
-
-          # monitor specific properties - move into hyprflake once implemented
-          bind = [
-            "$window, E, togglespecialworkspace, games"
-            "$window SHIFT, E, movetoworkspace, special:games"
-            "$window, R, togglespecialworkspace, reading"
-            "$window SHIFT, R, movetoworkspace, special:reading"
-            "$window, D, togglespecialworkspace, discord"
-            "$window SHIFT, D, movetoworkspace, special:discord"
-            "$window, C, togglespecialworkspace, code"
-            "$window SHIFT, C, movetoworkspace, special:code"
-          ];
-
           windowrulev2 = [
             "float, onworkspace:f[special:games]"
             "tile, onworkspace:f[special:games], initialTitle:^(Steam)$"
@@ -150,8 +169,8 @@ in
 
           windowrule = [ 
             "workspace special:games silent, class:steam"
-            "workspace special:discord, class:discord"
-            "workspace special:reading, class:Keybase" 
+            "workspace discord, class:discord"
+            "workspace reading, class:Keybase" 
           ];
         };
       };

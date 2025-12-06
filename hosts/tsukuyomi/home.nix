@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -44,9 +44,14 @@
     };
 
     workspaces = {
-      "code".monitor = "HDMI-A-1";
-      "discord".monitor = "HDMI-A-1";
-      "reading".monitor = "HDMI-A-1";
+      "code" = {
+        special = lib.mkForce false;
+        monitor = "HDMI-A-1";
+      };
+      "discord" = {
+        special = lib.mkForce false;
+        monitor = "HDMI-A-1";
+      };
     };
   };
 
