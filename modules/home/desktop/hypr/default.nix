@@ -74,68 +74,100 @@ in
         enable = true;
         defaultBackgroundColor = "rgb(242437)";
 
-        workspaces = let
-          numbered = num: {
-            persistent = true; 
-            open = {
-              mods = ["SUPER"];
-              key = num; 
+        workspaces =
+          let
+            numbered = num: {
+              persistent = true;
+              open = {
+                mods = [ "SUPER" ];
+                key = num;
+              };
+              moveWindow = {
+                mods = [
+                  "SUPER"
+                  "SHIFT"
+                ];
+                key = num;
+              };
             };
-            moveWindow = {
-              mods = ["SUPER" "SHIFT"];
-              key = num; 
+
+            withSuper = key: {
+              mods = [ "SUPER" ];
+              key = key;
+            };
+
+            withSuperShift = key: {
+              mods = [
+                "SUPER"
+                "SHIFT"
+              ];
+              key = key;
+            };
+          in
+          {
+            "1" = numbered "1";
+            "2" = numbered "2";
+            "3" = numbered "3";
+            "4" = numbered "4";
+            "5" = numbered "5";
+            "6" = numbered "6";
+
+            "code" = {
+              special = true;
+              gapsIn = 0;
+              gapsOut = 0;
+              border = false;
+              rounding = false;
+              decorate = false;
+              shadow = false;
+              open = withSuper "C";
+              moveWindow = withSuperShift "C";
+              windowSelectors = [
+                {
+                  initialTitle = "Visual Studio Code";
+                }
+              ];
+            };
+
+            "discord" = {
+              special = true;
+              open = withSuper "D";
+              moveWindow = withSuperShift "D";
+              windowSelectors = [
+                {
+                  class = "discord";
+                }
+              ];
+            };
+
+            "games" = {
+              special = true;
+              open = withSuper "E";
+              moveWindow = withSuperShift "E";
+              windowSelectors = [
+                {
+                  class = "steam";
+                }
+              ];
+            };
+
+            "reading" = {
+              special = true;
+              gapsIn = 0;
+              gapsOut = 0;
+              border = false;
+              rounding = false;
+              decorate = false;
+              shadow = false;
+              open = withSuper "R";
+              moveWindow = withSuperShift "R";
+              windowSelectors = [
+                {
+                  class = "keybase";
+                }
+              ];
             };
           };
-
-          withSuper = key: {
-            mods = ["SUPER"];
-            key = key;
-          };
-
-          withSuperShift = key: {
-            mods = ["SUPER" "SHIFT"];
-            key = key;
-          };
-        in {
-          "1" = numbered "1";
-          "2" = numbered "2";
-          "3" = numbered "3";
-          "4" = numbered "4";
-          "5" = numbered "5";
-          "6" = numbered "6";
-
-          "code" = { 
-            special = true; 
-            gapsIn = 0;
-            gapsOut = 0;
-            border = false;
-            rounding = false;
-            decorate = false;
-            shadow = false;
-            open = withSuper "C";
-            moveWindow = withSuperShift "C";
-          };
-          "discord" = { 
-            special = true; 
-            open = withSuper "D";
-            moveWindow = withSuperShift "D";
-          };
-          "games" = { special = true; 
-            open = withSuper "E";
-            moveWindow = withSuperShift "E";
-          };
-          "reading" = { 
-            special = true; 
-            gapsIn = 0;
-            gapsOut = 0;
-            border = false;
-            rounding = false;
-            decorate = false;
-            shadow = false;
-            open = withSuper "R";
-            moveWindow = withSuperShift "R";
-          };
-        };
       };
 
       wayland.windowManager.hyprland = {
@@ -158,22 +190,15 @@ in
             "hyprpaper"
             "dunst"
             "blueman-applet"
-            "waybar"
             "hyprctl setcursor BreezeX-RosePine-Linux 28"
           ];
 
-          windowrulev2 = [
-            "float, onworkspace:f[special:games]"
-            "tile, onworkspace:f[special:games], initialTitle:^(Steam)$"
-          ];
-
-          windowrule = [ 
-            "workspace special:games silent, class:steam"
-            "workspace discord, class:discord"
-            "workspace reading, class:Keybase" 
+          windowrule = [
+            "float 1, match:workspace f[special:games]"
+            "tile 1, match:workspace f[special:games], match:initial_title ^(Steam)$"
           ];
         };
       };
     }
-      );
-    }
+  );
+}

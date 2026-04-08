@@ -22,9 +22,9 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.danninx = {
-          imports = [ 
+          imports = [
             inputs.hyprflake.homeManagerModules.default
-            (import homeconfig) 
+            (import homeconfig)
           ];
         };
 

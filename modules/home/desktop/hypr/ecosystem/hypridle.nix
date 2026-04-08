@@ -20,14 +20,13 @@
               on-resume = "ddcutil setvcp 10 100";
             }
             {
-              # 2.5 minutes
-              timeout = 300;
+              timeout = 600;
               on-timeout = "loginctl lock-session";
               on-resume = "ddcutil setvcp 10 100";
             }
             {
               # 5 minutes
-              timeout = 450;
+              timeout = 750;
               on-timeout = "hyprctl dispatch dpms off";
               on-resume = "hyprctl dispatch dpms on && ddcutil setvcp 10 100";
             }

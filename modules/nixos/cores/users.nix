@@ -11,6 +11,7 @@
       "wireshark"
     ];
     packages = with pkgs; [
+      anki
       discord
       fuzzel
       nix-prefetch-git

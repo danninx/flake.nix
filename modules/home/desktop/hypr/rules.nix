@@ -4,36 +4,38 @@
   config = (
     lib.mkIf config.modules.hyprland.preset.enable {
       wayland.windowManager.hyprland.settings = {
-        windowrulev2 = [
+        windowrule = [
           # Picture-in-Picture
-          "float, title:^(Picture-in-Picture)$"
-          "pin, title:^(Picture-in-Picture)$"
-          "move 100%-660 20, title:^(Picture-in-Picture)$"
-          "size 640 360, title:^(Picture-in-Picture)$"
+          "float 1, match:title ^(Picture-in-Picture)$"
+          "pin 1, match:title ^(Picture-in-Picture)$"
+          "move 100%-660 20, match:title ^(Picture-in-Picture)$"
+          "size 640 360, match:title ^(Picture-in-Picture)$"
 
           # Network Manager Applet
-          "float, class:^(nm-connection-editor)$"
-          "pin, class:^(nm-connection-editor)$"
-          "move 25% 25%, class:^(nm-connection-editor)$"
-          "size 50% 50%, class:^(nm-connection-editor)$"
+          "float 1, match:class ^(nm-connection-editor)$"
+          "pin 1, match:class ^(nm-connection-editor)$"
+          "move 25% 25%, match:class ^(nm-connection-editor)$"
+          "size 50% 50%, match:class ^(nm-connection-editor)$"
 
           # Bluetooth Manager Applet
-          "float, class:^(.blueman-manager-wrapped)$"
-          "pin, class:^(.blueman-manager-wrapped)$"
-          "move 25% 25%, class:^(.blueman-manager-wrapped)$"
-          "size 50% 50%, class:^(.blueman-manager-wrapped)$"
+          "float 1, match:class ^(\\.blueman-manager-wrapped)$"
+          "pin 1, match:class ^(\\.blueman-manager-wrapped)$"
+          "move 25% 25%, match:class ^(\\.blueman-manager-wrapped)$"
+          "size 50% 50%, match:class ^(\\.blueman-manager-wrapped)$"
 
           # xdg portal file picker
-          "float, class:^(xdg-desktop-portal-gtk)$, title:^(All Files)$"
-          "float, class:^(xdg-desktop-portal-gtk)$, title:^(Open Files)$"
-          "float, class:^(xdg-desktop-portal-gtk)$, title:^(Open Folder)$"
-          "float, class:^(xdg-desktop-portal-gtk)$, title:^(Choose a folder)(.*)$"
+          "float 1, match:class ^(xdg-desktop-portal-gtk)$, match:title ^(All Files)$"
+          "float 1, match:class ^(xdg-desktop-portal-gtk)$, match:title ^(Open Files)$"
+          "float 1, match:class ^(xdg-desktop-portal-gtk)$, match:title ^(Open Folder)$"
+          "float 1, match:class ^(xdg-desktop-portal-gtk)$, match:title ^(Choose a folder)(.*)$"
 
           # pwvucontrol
-          "float, class:^(com.saivert.pwvucontrol)$"
-          "pin, class:^(com.saivert.pwvucontrol)$"
-          "move 25% 25%, class:^(com.saivert.pwvucontrol)$"
-          "size 50% 50%, class:^(com.saivert.pwvucontrol)$"
+          "float 1, match:class ^(com.saivert.pwvucontrol)$"
+          "pin 1, match:class ^(com.saivert.pwvucontrol)$"
+          "move 25% 25%, match:class ^(com.saivert.pwvucontrol)$"
+          "size 50% 50%, match:class ^(com.saivert.pwvucontrol)$"
+
+          "match:class ^(steam_app_.*)$, idle_inhibit focus"
         ];
       };
     }
